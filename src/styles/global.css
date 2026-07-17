@@ -1,0 +1,686 @@
+/* ============================================================
+   SHMULLY 2026 DESIGN SYSTEM
+   Alpine trail-sign / Bavarian lodge meets country club.
+   ============================================================ */
+
+:root {
+  /* Carved wood */
+  --wood-darkest: #2c1f12;
+  --wood-dark: #3d2b1a;
+  --wood: #5e452b;
+  --wood-mid: #74572f;
+  --wood-light: #8a6a42;
+  --tan: #d9c39a;
+  --parchment: #f1e8d4;
+  --cream: #faf6ec;
+
+  /* Alpine meadow */
+  --meadow: #3f6d3a;
+  --meadow-dark: #2c5228;
+  --pine: #1d3a22;
+
+  /* Snowcap / sky */
+  --snow: #f8fafb;
+  --sky: #a9c9e1;
+  --sky-deep: #4f7d9e;
+
+  /* Lederhosen gingham accent */
+  --gingham-a: #2e6e63;
+  --gingham-b: #3a7ca5;
+
+  /* Brass / trophies */
+  --brass: #b08d3e;
+  --brass-light: #d8b969;
+
+  --danger: #9c3a2a;
+
+  --font-display: 'Alfa Slab One', 'Georgia', serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --radius: 8px;
+  --shadow-card: 0 2px 6px rgba(44, 31, 18, 0.14), 0 8px 24px rgba(44, 31, 18, 0.08);
+  --nav-h: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--wood-darkest);
+  background-color: var(--parchment);
+  /* faint topo-line texture */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%235e452b' stroke-opacity='0.07' stroke-width='1.4'%3E%3Cpath d='M60 420c-30-60-45-120-20-180s90-80 120-140S180 20 210 0'/%3E%3Cpath d='M100 420c-28-55-40-110-16-165s82-74 110-129S225 45 252 0'/%3E%3Cpath d='M140 420c-25-50-34-100-12-150s75-68 100-118S268 68 292 0'/%3E%3Cpath d='M180 420c-22-45-28-90-8-135s67-62 90-107S310 90 332 0'/%3E%3Cpath d='M220 420c-19-40-22-80-4-120s60-56 80-96S352 112 372 0'/%3E%3Cpath d='M260 420c-16-35-16-70 0-105s52-50 70-85S394 134 412 0'/%3E%3C/g%3E%3C/svg%3E");
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--meadow-dark); }
+
+/* ---------- Type scale ---------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+/* Carved-into-wood engraving effect (for text ON wood) */
+.carved {
+  color: #24180d;
+  text-shadow:
+    0 1px 0 rgba(255, 226, 170, 0.32),
+    0 -1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wood);
+}
+
+/* ---------- Wood surfaces ---------- */
+
+.wood-panel {
+  background:
+    /* grain streaks */
+    repeating-linear-gradient(
+      93deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0.045) 2px,
+      rgba(0, 0, 0, 0) 5px,
+      rgba(255, 220, 160, 0.035) 8px,
+      rgba(0, 0, 0, 0) 12px
+    ),
+    linear-gradient(178deg, var(--wood-light) 0%, var(--wood-mid) 38%, var(--wood) 72%, #52391f 100%);
+  border: 2px solid var(--wood-darkest);
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 226, 170, 0.25),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35),
+    0 3px 8px rgba(44, 31, 18, 0.35);
+  position: relative;
+}
+
+/* corner screws */
+.wood-panel.screws::before,
+.wood-panel.screws::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #cfc0a0, #6b5636 55%, #2c1f12);
+  box-shadow: 0 1px 1px rgba(255, 226, 170, 0.3);
+}
+.wood-panel.screws::before { left: 8px; }
+.wood-panel.screws::after { right: 8px; }
+
+/* ---------- Carved signboard section header ---------- */
+
+.sign-header {
+  margin: 2.2rem auto 1.2rem;
+  max-width: 720px;
+  text-align: center;
+  padding: 0.9rem 1.1rem 0.75rem;
+}
+
+.sign-header h1,
+.sign-header h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 5.4vw, 1.9rem);
+}
+
+.sign-header .sign-elev {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d9c39a;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* sign hangs from small posts */
+.sign-wrap { position: relative; padding: 0 0.75rem; }
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--cream);
+  border: 1px solid rgba(94, 69, 43, 0.28);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 1rem;
+}
+
+.card + .card { margin-top: 0.85rem; }
+
+.card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.98rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--wood-dark);
+  margin-bottom: 0.45rem;
+}
+
+/* gingham accent strip (lederhosen check) */
+.gingham-strip {
+  height: 7px;
+  border-radius: 4px 4px 0 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.28) 0 5px, rgba(255,255,255,0) 5px 10px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.22) 0 3px, rgba(255,255,255,0) 3px 7px),
+    linear-gradient(90deg, var(--gingham-a), var(--gingham-b));
+}
+
+.card.gingham { padding-top: 0; overflow: hidden; }
+.card.gingham .gingham-strip { margin: 0 -1rem 0.8rem; border-radius: 0; }
+
+/* ---------- TBD placeholder slots (intentional, not broken) ---------- */
+
+.tbd-slot {
+  border: 2px dashed rgba(94, 69, 43, 0.45);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(217, 195, 154, 0.18) 0 10px,
+    rgba(217, 195, 154, 0.34) 10px 20px
+  );
+  color: var(--wood);
+  padding: 0.8rem 1rem;
+  text-align: center;
+}
+
+.tbd-slot .tbd-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-block;
+  background: var(--wood-dark);
+  color: var(--tan);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.tbd-slot p { font-size: 0.86rem; }
+
+/* ---------- Badges & chips ---------- */
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge.green { background: var(--meadow-dark); color: var(--snow); }
+.badge.tan { background: var(--tan); color: var(--wood-darkest); }
+.badge.brass { background: var(--brass); color: #fffbe8; }
+.badge.outline { border: 1.5px solid var(--wood); color: var(--wood); }
+.badge.red { background: var(--danger); color: var(--snow); }
+.badge.sky { background: var(--sky-deep); color: var(--snow); }
+
+/* ---------- Scorecard tables ---------- */
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius); }
+
+table.scorecard {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+table.scorecard th {
+  background: var(--meadow-dark);
+  color: var(--snow);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid rgba(29, 58, 34, 0.6);
+  white-space: nowrap;
+}
+
+table.scorecard td {
+  padding: 0.42rem 0.5rem;
+  border: 1px solid rgba(94, 69, 43, 0.25);
+  text-align: center;
+  white-space: nowrap;
+}
+
+table.scorecard td.rowlabel {
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 700;
+  background: var(--parchment);
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  box-shadow: 1px 0 0 rgba(94, 69, 43, 0.25);
+}
+
+table.scorecard tr.total-row td {
+  background: var(--tan);
+  font-weight: 600;
+}
+
+table.scorecard td.subtotal { background: rgba(217, 195, 154, 0.4); font-weight: 600; }
+
+/* ---------- Buttons / quick links ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--tan);
+  background: linear-gradient(180deg, var(--wood-mid), var(--wood-dark));
+  border: 2px solid var(--wood-darkest);
+  border-radius: var(--radius);
+  padding: 0.65rem 1rem;
+  box-shadow: inset 0 1px 0 rgba(255, 226, 170, 0.25), 0 2px 5px rgba(44, 31, 18, 0.3);
+  cursor: pointer;
+}
+
+.btn.green { background: linear-gradient(180deg, var(--meadow), var(--meadow-dark)); border-color: var(--pine); color: var(--snow); }
+.btn:active { transform: translateY(1px); }
+
+/* ---------- Layout helpers ---------- */
+
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 0.9rem 4rem;
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+@media (min-width: 600px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 420px) { .grid-2.collapse { grid-template-columns: 1fr; } }
+
+.muted { color: rgba(61, 43, 26, 0.68); font-size: 0.87rem; }
+.center { text-align: center; }
+
+/* ---------- Nav ---------- */
+
+.nav-root {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, var(--wood-dark), var(--wood-darkest));
+  border-bottom: 3px solid var(--wood-darkest);
+  box-shadow: 0 2px 10px rgba(44, 31, 18, 0.45);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem 0.35rem;
+  text-decoration: none;
+}
+
+.nav-brand .brand-sign {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tan);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 226, 170, 0.18);
+}
+
+.nav-brand .brand-pig { font-size: 1.05rem; }
+
+.nav-links {
+  display: flex;
+  gap: 0.3rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.25rem 0.6rem 0.55rem;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tan);
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 195, 154, 0.35);
+}
+
+.nav-links a.active {
+  background: var(--meadow-dark);
+  border-color: var(--meadow-dark);
+  color: var(--snow);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--wood-darkest);
+}
+
+.hero img.hero-art { width: 100%; height: 46vh; min-height: 300px; max-height: 460px; object-fit: cover; object-position: 22% 40%; }
+
+.hero .hero-sign {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  width: min(92%, 480px);
+  text-align: center;
+  padding: 0.85rem 1rem 0.7rem;
+}
+
+.hero .hero-sign .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 8vw, 2.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.hero .hero-sign .hero-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--tan);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+  margin-top: 0.3rem;
+}
+
+/* ---------- Countdown ---------- */
+
+.countdown { display: flex; justify-content: center; gap: 0.6rem; }
+
+.countdown .cd-cell {
+  flex: 1;
+  max-width: 92px;
+  text-align: center;
+  background: var(--cream);
+  border: 1px solid rgba(94, 69, 43, 0.3);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 0.55rem 0.25rem 0.45rem;
+}
+
+.countdown .cd-num {
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 6.5vw, 2rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--meadow-dark);
+  line-height: 1.1;
+}
+
+.countdown .cd-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wood);
+}
+
+/* ---------- Champions banner ---------- */
+
+.champs-banner { margin-top: 1rem; padding: 0.9rem 1rem 1.1rem; text-align: center; }
+
+.champs-banner .champs-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.champ-row { display: flex; justify-content: center; gap: 0.65rem; margin-top: 0.7rem; flex-wrap: wrap; }
+
+.champ-slot { width: 72px; }
+
+.champ-slot .champ-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2.5px solid var(--brass);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(216, 185, 105, 0.5), rgba(0, 0, 0, 0) 60%),
+    repeating-linear-gradient(-45deg, rgba(217, 195, 154, 0.25) 0 8px, rgba(217, 195, 154, 0.45) 8px 16px),
+    var(--wood-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.champ-slot .champ-name {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-top: 0.35rem;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Quick links grid on Home ---------- */
+
+.quick-links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-top: 1.1rem; }
+@media (min-width: 560px) { .quick-links { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Shmully tally ---------- */
+
+.tally-list { display: flex; flex-direction: column; gap: 0.45rem; }
+
+.tally-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--cream);
+  border: 1px solid rgba(94, 69, 43, 0.25);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.7rem;
+}
+
+.tally-row .tally-name { font-weight: 700; flex: 1; font-size: 0.92rem; }
+
+.tally-row .tally-pigs { font-size: 0.85rem; letter-spacing: 0.08em; overflow: hidden; white-space: nowrap; }
+
+.tally-row .tally-count {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--meadow-dark);
+  min-width: 2ch;
+  text-align: right;
+}
+
+/* ---------- Beds ---------- */
+
+.room-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 400px) { .room-grid { grid-template-columns: 1fr; } }
+
+.room-card { padding: 0.8rem 0.9rem; }
+
+.room-card .room-type { font-size: 1.35rem; margin-bottom: 0.2rem; }
+
+.sleeper {
+  display: inline-block;
+  background: var(--parchment);
+  border: 1px solid rgba(94, 69, 43, 0.3);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.14rem 0.6rem;
+  margin: 0.15rem 0.2rem 0 0;
+}
+
+/* ---------- Agenda ---------- */
+
+.day-card .day-date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+}
+
+.agenda-item { display: flex; gap: 0.65rem; padding: 0.4rem 0; border-top: 1px dashed rgba(94, 69, 43, 0.25); }
+.agenda-item:first-of-type { border-top: none; }
+
+.agenda-item .agenda-time {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--meadow-dark);
+  flex: 0 0 4.6rem;
+  padding-top: 0.1rem;
+}
+
+.agenda-item .agenda-what { font-size: 0.9rem; }
+
+/* ---------- Segmented control (scoreboard tabs) ---------- */
+
+.seg {
+  display: flex;
+  background: var(--parchment);
+  border: 1.5px solid var(--wood);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.seg button {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  color: var(--wood);
+  border-radius: 999px;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+}
+
+.seg button.on { background: var(--wood-dark); color: var(--tan); }
+
+/* ---------- Leaderboard ---------- */
+
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--cream);
+  border: 1px solid rgba(94, 69, 43, 0.25);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+}
+
+.lb-row.leader { border: 2px solid var(--brass); box-shadow: 0 0 0 3px rgba(176, 141, 62, 0.18); }
+
+.lb-pos {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--wood-light);
+  width: 1.6rem;
+  text-align: center;
+}
+
+.lb-team { flex: 1; }
+.lb-team .lb-name { font-weight: 800; font-size: 0.95rem; }
+.lb-team .lb-thru { font-family: var(--font-mono); font-size: 0.68rem; color: rgba(61, 43, 26, 0.6); }
+
+.lb-score {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--meadow-dark);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.4rem 1rem 2.2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--wood-dark), var(--wood-darkest));
+  color: var(--tan);
+}
+
+.site-footer .eyebrow { color: var(--tan); opacity: 0.75; }
+
+/* ---------- Misc ---------- */
+
+.rule-item { border-left: 4px solid var(--meadow-dark); padding: 0.15rem 0 0.15rem 0.8rem; margin: 0.8rem 0; }
+.rule-item .rule-name { font-weight: 800; }
+.rule-item p { font-size: 0.92rem; }
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+  margin-right: 0.35rem;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.notice {
+  background: rgba(79, 125, 158, 0.12);
+  border: 1px solid rgba(79, 125, 158, 0.4);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+}
