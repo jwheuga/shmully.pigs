@@ -40,8 +40,14 @@ export const trip = {
 }
 
 export const reigningChampions = {
-  names: ['Carlos', 'Michael', 'Wilder', 'William'],
-  note: 'Photos coming from Wilder',
+  // Carlos's real photo is still MIA — a distinguished stunt pig fills in.
+  champs: [
+    { name: 'Carlos', photo: '/champs/champ-carlos.webp' },
+    { name: 'Michael', photo: '/champs/champ-michael.webp' },
+    { name: 'Wilder', photo: '/champs/champ-wilder.webp' },
+    { name: 'William', photo: '/champs/champ-william.webp' },
+  ],
+  note: "Carlos's portrait pending — a distinguished stunt pig fills in",
 }
 
 // ---------- PLAYERS ----------

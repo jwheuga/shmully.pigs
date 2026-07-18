@@ -41,15 +41,17 @@ export default function Home() {
         <div className="champs-banner wood-panel screws">
           <div className="champs-title carved">🏆 Reigning Champions 🏆</div>
           <div className="champ-row">
-            {reigningChampions.names.map((name) => (
-              <div className="champ-slot" key={name}>
-                <div className="champ-photo" title={`${name} — photo coming soon`}>🐷</div>
-                <div className="champ-name">{name}</div>
+            {reigningChampions.champs.map((c) => (
+              <div className="champ-slot" key={c.name}>
+                <div className="champ-photo">
+                  {c.photo ? <img src={c.photo} alt={c.name} /> : '🐷'}
+                </div>
+                <div className="champ-name">{c.name}</div>
               </div>
             ))}
           </div>
           <p style={{ marginTop: '0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--tan)', opacity: 0.8 }}>
-            {reigningChampions.note} — slots reserved
+            {reigningChampions.note}
           </p>
         </div>
 
