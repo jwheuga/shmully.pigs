@@ -207,7 +207,7 @@ export default function Scoreboard() {
 
       <p className="center" style={{ marginBottom: '0.9rem' }}>
         {data.isSample ? (
-          <span className="badge tan">SAMPLE DATA — LIVE SCORES START FRI 7/31</span>
+          <span className="badge tan">BOARDS CLEARED — LIVE SCORES START FRI 7/31</span>
         ) : error ? (
           <span className="badge red">CONNECTION HICCUP — SHOWING LAST GOOD SCORES</span>
         ) : (
@@ -238,7 +238,7 @@ export default function Scoreboard() {
       <p className="muted center" style={{ marginTop: '1.2rem', fontSize: '0.78rem' }}>
         {config.SCORES_CSV_URL
           ? `Scores refresh every ${Math.round(config.POLL_INTERVAL_MS / 1000)}s from the Shmully sheet.`
-          : 'Live feed connects when the Shmully sheet is published — sample scores shown for now.'}
+          : 'Live feed connects when the Shmully sheet is published — showing the latest sheet snapshot.'}
       </p>
     </div>
   )

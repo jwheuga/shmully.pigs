@@ -4,12 +4,6 @@ import { players, tbdPigs } from '../data/content.ts'
 
 function Handicap({ p }) {
   if (p.handicap != null) return <span className="badge green">HCP {p.handicap}</span>
-  if (p.ref2023 != null)
-    return (
-      <span className="badge outline" title="2026 handicap incoming — 2023 reference shown">
-        '23 REF: {p.ref2023}
-      </span>
-    )
   return <span className="badge outline">HCP TBD</span>
 }
 
@@ -17,10 +11,6 @@ export default function Players() {
   return (
     <div className="page">
       <SignHeader title="The 2026 Roster" elev={`${players.length} CONFIRMED PIGS`} />
-
-      <p className="notice center" style={{ marginBottom: '1rem' }}>
-        2026 handicaps are being updated by Wilder — 2023 reference numbers shown for returning players.
-      </p>
 
       <div className="grid-2 collapse">
         {players.map((p) => (
@@ -45,10 +35,12 @@ export default function Players() {
       <SignHeader title="TBD Pigs" elev="UNCONFIRMED · PENDING SQUEAL" />
 
       <div className="grid-2 collapse">
-        {tbdPigs.map((name) => (
-          <TbdSlot key={name} label="TBD PIG">
-            <p style={{ fontWeight: 800 }}>{name}</p>
-            <p className="muted" style={{ fontSize: '0.78rem' }}>Awaiting confirmation</p>
+        {tbdPigs.map((p) => (
+          <TbdSlot key={p.name} label="TBD PIG">
+            <p style={{ fontWeight: 800 }}>{p.name}</p>
+            <p className="muted" style={{ fontSize: '0.78rem' }}>
+              Penciled into Group {p.group} · HCP {p.handicap} · awaiting confirmation
+            </p>
           </TbdSlot>
         ))}
       </div>

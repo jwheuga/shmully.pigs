@@ -1,26 +1,38 @@
 import SignHeader from '../components/SignHeader.jsx'
-import TbdSlot from '../components/TbdSlot.jsx'
-import { teams, hallOfFame } from '../data/content.ts'
+import { teams, players, tbdPigs, hallOfFame } from '../data/content.ts'
 
 export default function Teams() {
   return (
     <div className="page">
-      <SignHeader title="Teams" elev="4 GROUPS · A THROUGH D" />
+      <SignHeader title="Teams" elev="5 GROUPS · A THROUGH E" />
 
       <p className="notice center" style={{ marginBottom: '1rem' }}>{teams.structureNote}</p>
 
       <div className="grid-2">
-        {teams.groups.map((g) => (
-          <div className="card" key={g} style={{ marginTop: 0 }}>
-            <h3>Group {g}</h3>
-            <TbdSlot label="PAIRINGS TBD">
-              <p style={{ fontSize: '0.8rem' }}>Announced at the Opening Ceremony, Thursday 7/30</p>
-            </TbdSlot>
-            <p className="muted" style={{ marginTop: '0.5rem', fontSize: '0.78rem', fontFamily: 'var(--font-mono)' }}>
-              AVG HCP: — <span title="Self-heals when 2026 handicaps land">(pending handicaps)</span>
-            </p>
-          </div>
-        ))}
+        {teams.groups.map((g) => {
+          const members = players.filter((p) => p.group === g)
+          const pending = tbdPigs.filter((p) => p.group === g)
+          return (
+            <div className="card" key={g} style={{ marginTop: 0 }}>
+              <h3>
+                Group {g}{' '}
+                {teams.avgHandicaps[g] != null && <span className="badge tan">AVG {teams.avgHandicaps[g]}</span>}
+              </h3>
+              <div>
+                {members.map((p) => (
+                  <span className="sleeper" key={p.name}>
+                    {p.nickname || p.name} · {p.handicap}
+                  </span>
+                ))}
+                {pending.map((p) => (
+                  <span className="sleeper" key={p.name} style={{ borderStyle: 'dashed', opacity: 0.7 }}>
+                    {p.name} · {p.handicap} (TBD)
+                  </span>
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
 
       <SignHeader title="Team Name Hall of Fame" elev="CHOOSE WISELY" />
