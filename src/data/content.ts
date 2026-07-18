@@ -78,21 +78,12 @@ export const players: Player[] = [
   { name: 'Zach Adamson', handicap: 20, group: 'E', house: false },
 ]
 
-// Unconfirmed (FALSE in the sheet) — label exactly "TBD Pigs" on the site.
-// They're penciled into groups, so they carry a group + handicap.
-export const tbdPigs = [
-  { name: 'Alex Chay', handicap: 20, group: 'B' },
-  { name: 'Wogan', handicap: 15, group: 'C' },
-]
-
 // ---------- TEAMS ----------
+// Groupings are under wraps until the reveal — player group fields stay in
+// the data above but are not rendered anywhere.
 
 export const teams = {
-  structureNote:
-    '5 groups of 4 (A–E), straight from the sheet. Averages include the TBD pigs penciled into their groups.',
-  groups: ['A', 'B', 'C', 'D', 'E'],
-  // Sheet-computed average handicaps (include unconfirmed pigs)
-  avgHandicaps: { A: 15.25, B: 15.25, C: 15.25, D: 15.3, E: 15.5 },
+  revealNote: 'Pairings are locked in a vault in the Alps.',
   pastTeamNames: ['Good Luck Cucks', 'Hog Fockers', 'Milk Bag Boys', 'Hog Fathers'],
 }
 
@@ -184,7 +175,7 @@ export const arrivals = [
 export const format = {
   name: '4v4v4v4 Tournament Format 1',
   rounds: [
-    { label: 'Round 1 — Vail GC', detail: 'Groups A/B/C/D each play Shamble, best 2 balls, stroke play.' },
+    { label: 'Round 1 — Vail GC', detail: 'Groups A/B/C/D/E each play Shamble, best 2 balls, stroke play.' },
     { label: 'Round 2 — Red Sky', detail: 'Combined pairings (AB, AC, BD, CD) play Adjusted Individual Stroke — drop the worst score each hole, add the best three.' },
   ],
   rejected: 'Match play was considered and rejected.',
@@ -214,11 +205,7 @@ export const rules = [
   },
   {
     name: 'Putting',
-    text: 'Match play: opposing teams can agree putts are "good" to halve the hole ("good good"). Stroke play: no gimmies. All putts must be finished in the cup. Even 2-footers.',
-  },
-  {
-    name: 'Triple Bogey (DAY 2 ONLY)',
-    text: "Players who get a triple bogey play from the lady's tees (in shame) on the next hole.",
+    text: 'No putt can be "good." No gimmies. All putts must be finished in the cup on both days. Even 2-footers.',
   },
 ]
 
@@ -303,33 +290,23 @@ export const house = {
 
 // ---------- MONEY ----------
 
+// Per-person math assumes: 11 pigs at the house, 20 pigs golfing,
+// $500 groceries split by the 11 at the house.
 export const money = {
+  assumptions: 'Assumes 11 at the house, 20 golfing, $500 of groceries split by the house.',
   lineItems: [
-    { item: 'Airbnb (4842 Meadow Lane)', amount: '$11,359.24 out the door', perPerson: '$459.06 at 11 · $504.97 at 10' },
-    { item: 'Vail Golf Club', amount: '$2,624 for 16 · $3,280 for 20', perPerson: '$164 pp' },
-    { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285 pp' },
-    { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33 pp' },
-    { item: 'Groceries', amount: 'TBD', perPerson: 'TBD' },
+    { item: 'Airbnb (4842 Meadow Lane)', amount: '$11,359.24 out the door', perPerson: '$1,032.66' },
+    { item: 'Vail Golf Club', amount: '$3,280 for 20', perPerson: '$164.00' },
+    { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285.00' },
+    { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33' },
+    { item: 'Groceries (est.)', amount: '$500', perPerson: '$45.45' },
   ],
-  context2023:
-    '2023 ran ~$738 pp — plus a ~$600 Costco run and a ~$600 DoorDash night that got split informally. The per-person ledger below exists so that chaos never happens again.',
+  totals: [
+    { label: 'House pig, golfing both rounds', amount: '$1,585.44' },
+    { label: 'Off-site pig, golfing both rounds', amount: '$507.33' },
+  ],
   // Payments not yet logged in the sheet — flip paid:true as money lands.
   payments: players.map((p) => ({ name: p.nickname || p.name, paid: false })),
-}
-
-// ---------- HALL OF FAME ----------
-
-export const hallOfFame = {
-  finals2023: [
-    { team: 'Milk Bag Boys', score: 401, champion: true },
-    { team: 'Hog Fockers', score: 404 },
-    { team: 'Good Luck Cucks', score: 408 },
-    { team: 'Hog Fathers', score: 435 },
-  ],
-  tallyChamps2023: [
-    { name: 'Carlos', count: 10 },
-    { name: 'Derek', count: 10 },
-  ],
 }
 
 // ---------- GLOSSARY (New Pig Orientation) ----------
@@ -346,10 +323,6 @@ export const glossary = [
   {
     term: 'Shmully Tally',
     def: 'The official running count of shmullies per player, kept all weekend. Decides the "Most Shmullies" award. The 2023 record is 10 (Carlos and Derek, co-champions, legends).',
-  },
-  {
-    term: 'Triple Bogey Shame Rule',
-    def: 'Day 2 only: card a triple and you play the next hole from the forward tees, in shame. Everyone will watch.',
   },
   {
     term: 'Shamble',
@@ -388,8 +361,6 @@ export const scoreboardFallback = {
     { team: 'Team D', holes: emptyHoles() },
     { team: 'Team E', holes: emptyHoles() },
   ],
-  tally: [
-    { name: 'Derek', count: 32 },
-    { name: 'Carlos', count: 0 },
-  ],
+  // Cleared for 2026 — previous years' counts don't carry over.
+  tally: [],
 }

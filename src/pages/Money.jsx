@@ -14,27 +14,29 @@ export default function Money() {
             <thead>
               <tr>
                 <th style={{ textAlign: 'left' }}>Item</th>
-                <th>Total</th>
                 <th>Per Pig</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
               {money.lineItems.map((li) => (
                 <tr key={li.item}>
                   <td className="rowlabel">{li.item}</td>
+                  <td style={{ whiteSpace: 'normal', minWidth: '6rem' }}>{li.perPerson}</td>
                   <td style={{ whiteSpace: 'normal', minWidth: '9rem' }}>{li.amount || '—'}</td>
-                  <td style={{ whiteSpace: 'normal', minWidth: '7rem' }}>{li.perPerson}</td>
+                </tr>
+              ))}
+              {money.totals.map((t) => (
+                <tr className="total-row" key={t.label}>
+                  <td className="rowlabel">{t.label}</td>
+                  <td>{t.amount}</td>
+                  <td />
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </div>
-
-      <div className="card gingham">
-        <div className="gingham-strip" />
-        <h3>📜 A Lesson From 2023</h3>
-        <p style={{ fontSize: '0.9rem' }}>{money.context2023}</p>
+        <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>{money.assumptions}</p>
       </div>
 
       <SignHeader title="Amount Paid" elev="THE LEDGER" />
