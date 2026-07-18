@@ -42,10 +42,10 @@ export const trip = {
 export const reigningChampions = {
   // Carlos's real photo is still MIA — a distinguished stunt pig fills in.
   champs: [
-    { name: 'Carlos', photo: '/champs/champ-carlos.webp' },
-    { name: 'Michael', photo: '/champs/champ-michael.webp' },
-    { name: 'Wilder', photo: '/champs/champ-wilder.webp' },
-    { name: 'William', photo: '/champs/champ-william.webp' },
+    { name: 'Carlos', photo: '/champs/school-carlos.webp' },
+    { name: 'Michael', photo: '/champs/school-michael.webp' },
+    { name: 'Wilder', photo: '/champs/school-wilder.webp' },
+    { name: 'William', photo: '/champs/school-william.webp' },
   ],
   note: "Carlos's portrait pending — a distinguished stunt pig fills in",
 }
