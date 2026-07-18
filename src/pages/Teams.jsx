@@ -1,38 +1,19 @@
 import SignHeader from '../components/SignHeader.jsx'
-import { teams, players, tbdPigs, hallOfFame } from '../data/content.ts'
+import { teams } from '../data/content.ts'
 
 export default function Teams() {
   return (
     <div className="page">
-      <SignHeader title="Teams" elev="5 GROUPS · A THROUGH E" />
+      <SignHeader title="Teams" elev="CLASSIFIED" />
 
-      <p className="notice center" style={{ marginBottom: '1rem' }}>{teams.structureNote}</p>
-
-      <div className="grid-2">
-        {teams.groups.map((g) => {
-          const members = players.filter((p) => p.group === g)
-          const pending = tbdPigs.filter((p) => p.group === g)
-          return (
-            <div className="card" key={g} style={{ marginTop: 0 }}>
-              <h3>
-                Group {g}{' '}
-                {teams.avgHandicaps[g] != null && <span className="badge tan">AVG {teams.avgHandicaps[g]}</span>}
-              </h3>
-              <div>
-                {members.map((p) => (
-                  <span className="sleeper" key={p.name}>
-                    {p.nickname || p.name} · {p.handicap}
-                  </span>
-                ))}
-                {pending.map((p) => (
-                  <span className="sleeper" key={p.name} style={{ borderStyle: 'dashed', opacity: 0.7 }}>
-                    {p.name} · {p.handicap} (TBD)
-                  </span>
-                ))}
-              </div>
-            </div>
-          )
-        })}
+      <div className="champs-banner wood-panel screws" style={{ marginTop: '1.2rem' }}>
+        <div className="champs-title carved">🐷 Teams Will Be Revealed Soon 🐷</div>
+        <p style={{ marginTop: '0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--tan)' }}>
+          {teams.revealNote}
+        </p>
+        <p style={{ marginTop: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--tan)', opacity: 0.75 }}>
+          Announced at the Opening Ceremony · Thursday 7/30
+        </p>
       </div>
 
       <SignHeader title="Team Name Hall of Fame" elev="CHOOSE WISELY" />
@@ -48,28 +29,6 @@ export default function Teams() {
         <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.82rem' }}>
           The bar has been set. Do not show up with something boring.
         </p>
-      </div>
-
-      <div className="card">
-        <h3>🏆 2023 Final Standings</h3>
-        <div className="table-scroll">
-          <table className="scorecard">
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left' }}>Team</th>
-                <th>Final</th>
-              </tr>
-            </thead>
-            <tbody>
-              {hallOfFame.finals2023.map((t) => (
-                <tr key={t.team}>
-                  <td className="rowlabel">{t.champion ? '👑 ' : ''}{t.team}</td>
-                  <td>{t.score}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
   )
