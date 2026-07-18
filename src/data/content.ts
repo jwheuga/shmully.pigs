@@ -295,14 +295,14 @@ export const house = {
 export const money = {
   assumptions: 'Assumes 11 at the house, 20 golfing, $500 of groceries split by the house.',
   lineItems: [
-    { item: 'Airbnb (4842 Meadow Lane)', amount: '$11,359.24 out the door', perPerson: '$1,032.66' },
+    { item: 'Airbnb (4842 Meadow Lane)', amount: '$5,059.71', perPerson: '$459.97' },
     { item: 'Vail Golf Club', amount: '$3,280 for 20', perPerson: '$164.00' },
     { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285.00' },
     { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33' },
     { item: 'Groceries (est.)', amount: '$500', perPerson: '$45.45' },
   ],
   totals: [
-    { label: 'House pig, golfing both rounds', amount: '$1,585.44' },
+    { label: 'House pig, golfing both rounds', amount: '$1,012.75' },
     { label: 'Off-site pig, golfing both rounds', amount: '$507.33' },
   ],
   // Payments not yet logged in the sheet — flip paid:true as money lands.
