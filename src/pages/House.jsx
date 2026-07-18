@@ -4,7 +4,7 @@ import { house } from '../data/content.ts'
 export default function House() {
   return (
     <div className="page">
-      <SignHeader title="The House" elev="4842 MEADOW LANE · VAIL, CO" />
+      <SignHeader title="The Pig Pen" elev="4842 MEADOW LANE · VAIL, CO" />
 
       <div className="card gingham center">
         <div className="gingham-strip" />

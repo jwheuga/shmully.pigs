@@ -7,7 +7,7 @@ export default function Beds() {
 
   return (
     <div className="page">
-      <SignHeader title="Bed Assignments" elev="6 BUNKS · 2 KINGS · 2 QUEENS" />
+      <SignHeader title="Pigsties" elev="6 BUNKS · 2 KINGS · 2 QUEENS" />
 
       <p className="center muted" style={{ marginBottom: '1rem' }}>
         Who sleeps where. Complaints may be filed with the Committee (there is no Committee).

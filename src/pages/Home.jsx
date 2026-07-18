@@ -5,8 +5,8 @@ import { trip, reigningChampions } from '../data/content.ts'
 const quickLinks = [
   ['/scoreboard', '📊 Scoreboard'],
   ['/agenda', '📅 Agenda'],
-  ['/house', '🏠 House'],
-  ['/beds', '🛏️ Beds'],
+  ['/house', '🏠 The Pig Pen'],
+  ['/beds', '🛏️ Pigsties'],
   ['/rules', '📜 Rules'],
   ['/new-pigs', '🐷 New Pigs'],
 ]
