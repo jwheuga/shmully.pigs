@@ -45,48 +45,54 @@ export const reigningChampions = {
 }
 
 // ---------- PLAYERS ----------
-// handicap: 2026 number once Wilder updates; ref2023: last-known reference.
-// group: A/B/C/D once pairings are announced (null = TBD).
+// Synced from sheet "Players 2026" (updated 7/18/26): 2026 handicaps are in,
+// groups are A–E (5 teams of 4).
 
 export interface Player {
   name: string
   nickname?: string
   handicap: number | null
-  ref2023?: number
   group: string | null
   house: boolean
   stat?: string
 }
 
 export const players: Player[] = [
-  { name: 'Dustin Oreilly', nickname: 'Dirty', handicap: null, ref2023: 9, group: null, house: true, stat: 'Founding pig energy' },
-  { name: 'Wilder Heuga', handicap: null, ref2023: 11, group: null, house: true, stat: 'Reigning champion' },
-  { name: 'Derek Vanwagner', nickname: 'DVW', handicap: null, ref2023: 18, group: null, house: true, stat: 'Co-holder, Shmully Tally record (10)' },
-  { name: 'Nick Cantelmi', handicap: null, ref2023: 5, group: null, house: true, stat: 'Lowest handicap in the sty' },
-  { name: 'Tony Savino', handicap: null, group: null, house: true },
-  { name: 'Daniel Wiechert', handicap: null, ref2023: 14, group: null, house: true, stat: 'Keeper of the Sheet' },
-  { name: 'Matt Albrecht', nickname: 'Albright', handicap: null, group: null, house: true },
-  { name: 'Matt Wilson', nickname: 'Wilson', handicap: null, group: null, house: true },
-  { name: 'William Scheffler', nickname: 'Billy', handicap: null, group: null, house: true, stat: 'Reigning champion' },
-  { name: "Albrecht's BIL Zach", handicap: null, group: null, house: true, stat: 'Brother-in-law privileges' },
-  { name: 'Zach Adamson', handicap: null, group: null, house: true },
-  { name: 'Dylan Hall', handicap: null, group: null, house: true },
-  { name: 'Matty Dood', handicap: null, group: null, house: true },
-  { name: 'Wagner', handicap: null, group: null, house: true },
-  { name: 'Hunter', handicap: null, group: null, house: true },
-  { name: 'Harvy', handicap: null, group: null, house: true },
-  { name: 'Taylor Telling', handicap: null, group: null, house: false, stat: 'Not staying at the house' },
+  { name: 'Nick Cantelmi', handicap: 5, group: 'A', house: true, stat: 'Lowest handicap in the sty' },
+  { name: 'Dustin Oreilly', nickname: 'Dirty', handicap: 9, group: 'A', house: true, stat: 'Founding pig energy' },
+  { name: 'Wagner', handicap: 22, group: 'A', house: true },
+  { name: 'Tony Savino', handicap: 25, group: 'A', house: true },
+  { name: 'Ryan', handicap: 7, group: 'B', house: false },
+  { name: 'Wilder Heuga', handicap: 12, group: 'B', house: true, stat: 'Reigning champion' },
+  { name: 'Hunter', handicap: 22, group: 'B', house: true },
+  { name: 'William Scheffler', nickname: 'Billy', handicap: 8, group: 'C', house: true, stat: 'Reigning champion' },
+  { name: 'Derek Vanwagner', nickname: 'DVW', handicap: 18, group: 'C', house: true, stat: 'Co-holder, Shmully Tally record' },
+  { name: 'Matt Wilson', nickname: 'Wilson', handicap: 20, group: 'C', house: true },
+  { name: 'Taylor Telling', handicap: 6.2, group: 'D', house: false, stat: 'Not staying at the house' },
+  { name: 'Daniel Wiechert', handicap: 14, group: 'D', house: true, stat: 'Keeper of the Sheet' },
+  { name: 'Matty Dood', handicap: 18, group: 'D', house: false },
+  { name: 'Harvy', handicap: 23, group: 'D', house: true },
+  { name: 'Franco', handicap: 9, group: 'E', house: false },
+  { name: 'Matt Albrecht', nickname: 'Albright', handicap: 13, group: 'E', house: true },
+  { name: 'Dylan Hall', handicap: 20, group: 'E', house: false },
+  { name: 'Zach Adamson', handicap: 20, group: 'E', house: false },
 ]
 
-// Unconfirmed — label exactly "TBD Pigs" on the site.
-export const tbdPigs = ['Franco', 'Blaze', 'Brad', "Greg (DVW's buddy)"]
+// Unconfirmed (FALSE in the sheet) — label exactly "TBD Pigs" on the site.
+// They're penciled into groups, so they carry a group + handicap.
+export const tbdPigs = [
+  { name: 'Alex Chay', handicap: 20, group: 'B' },
+  { name: 'Wogan', handicap: 15, group: 'C' },
+]
 
 // ---------- TEAMS ----------
 
 export const teams = {
   structureNote:
-    '4 groups (A–D) with subgroups 1/2, plus 2 groups X/Y — assignments announced at the Opening Ceremony. Team average handicaps self-heal once 2026 handicaps land in the sheet.',
-  groups: ['A', 'B', 'C', 'D'],
+    '5 groups of 4 (A–E), straight from the sheet. Averages include the TBD pigs penciled into their groups.',
+  groups: ['A', 'B', 'C', 'D', 'E'],
+  // Sheet-computed average handicaps (include unconfirmed pigs)
+  avgHandicaps: { A: 15.25, B: 15.25, C: 15.25, D: 15.3, E: 15.5 },
   pastTeamNames: ['Good Luck Cucks', 'Hog Fockers', 'Milk Bag Boys', 'Hog Fathers'],
 }
 
@@ -184,42 +190,44 @@ export const format = {
   rejected: 'Match play was considered and rejected.',
 }
 
-// Keep the sheet's voice — this wording is the personality of the site.
+// Verbatim from the sheet's "Rules + Awards" tab — this wording is the
+// personality of the site. Do not sanitize.
 export const rules = [
   {
-    name: 'Shotgun Mulligan ("Shmully")',
-    text: 'Unlimited. Call "shmully," shotgun an entire beer, IMMEDIATELY hit your mulligan. No shmullies on the greens.',
+    name: 'Shotgun Mulligan: "Shmully"',
+    text: 'You have unlimited shotgun mulligans. If you call "shmully", you must shotgun an entire beer and IMMEDIATELY hit your mulligan. Shmullies are not permitted on the greens.',
     highlight: true,
   },
-  { name: 'Scorecards', text: 'Do not lose your scorecards.' },
+  { name: 'Scorecards', text: 'Do not lose your fucking score cards.' },
   {
-    name: 'Pace of Play',
-    text: '4.5 hrs/round max. No six-hour rounds (last year nearly ended in a brawl).',
+    name: 'Pace of Play — 4.5 hours/round',
+    text: "No six-hour rounds. These are nice courses we're playing. Last year was a shitshow and half of the group almost got in a brawl after the group behind them hit up on them.",
   },
   {
-    name: 'Provisionals',
-    text: 'Per USGA Rule 18.3 — announce "provisional," 3 minutes to search, stroke-and-distance otherwise.',
+    name: 'Provisional',
+    text: 'Pursuant to Rule 18.3 of the USGA rules: When playing a provisional, you must say "provisional". After taking your provisional shot, if you end up finding your first ball, you can play your first ball without penalty. You have 3 minutes to try to find your first ball in the area. If you cannot find your first shot, you must play your provisional, whereby you will be assessed by stroke and penalty, meaning your provisional shot off the tee would be your third shot.',
   },
-  { name: 'Lateral / OB', text: 'Option to take distance, drop, add a stroke, hit.' },
+  { name: 'Lateral Rules', text: 'Hit OB, option to take distance, drop, add a stroke, hit.' },
   {
-    name: 'Drive Minimums',
-    text: '4-man formats — at least 1 drive per player. 2-man formats — at least 2 drives per player.',
+    name: 'Scramble/Shamble Drives',
+    text: '4-man formats: each group must use at least 1 drive from each of their players during the round. 2-man formats: at least 2 drives from each player.',
   },
   {
     name: 'Putting',
-    text: 'Match play — "good good" by agreement. Stroke play — no gimmies, everything holed, even 2-footers.',
+    text: 'Match play: opposing teams can agree putts are "good" to halve the hole ("good good"). Stroke play: no gimmies. All putts must be finished in the cup. Even 2-footers.',
   },
   {
-    name: 'Triple Bogey (Day 2 only)',
-    text: 'Triple = next hole from the forward tees, in shame.',
+    name: 'Triple Bogey (DAY 2 ONLY)',
+    text: "Players who get a triple bogey play from the lady's tees (in shame) on the next hole.",
   },
 ]
 
 export const awards = [
-  { name: 'Shmully Cup', desc: 'Winning team', icon: '🏆' },
-  { name: 'Best Pairing / Worst Pairing', desc: 'Glory and disgrace, respectively', icon: '🤝' },
-  { name: 'Most Shmullies', desc: 'Decided by the Shmully Tally', icon: '🐷' },
-  { name: 'Best Player', desc: 'Lowest combined individual score, both days', icon: '⛳' },
+  { name: 'Shmully Cup', desc: 'Winners', icon: '🏆' },
+  { name: 'Best Pairing', desc: '2-some with the lowest score', icon: '🤝' },
+  { name: 'Worst Pairing', desc: '2-some with the highest score', icon: '🤡' },
+  { name: 'Most Shmullies', desc: 'Individual with the most shotgun mulligans', icon: '🐷' },
+  { name: 'Best Player', desc: 'Lowest individual combined score over both days', icon: '⛳' },
 ]
 
 export const rejectedAwards = 'Closest-to-pin and Longest Drive were considered and rejected.'
@@ -297,10 +305,10 @@ export const house = {
 
 export const money = {
   lineItems: [
-    { item: 'Airbnb (4842 Meadow Lane)', amount: '$11,059.24 + $300 pet fee = $11,359.24', perPerson: '~$459–505 pp (depends on headcount)' },
-    { item: 'Vail Golf Club', amount: '', perPerson: '$164 pp' },
-    { item: 'Red Sky Golf Club', amount: '', perPerson: '$285 pp' },
-    { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '~$58.33 pp' },
+    { item: 'Airbnb (4842 Meadow Lane)', amount: '$11,359.24 out the door', perPerson: '$459.06 at 11 · $504.97 at 10' },
+    { item: 'Vail Golf Club', amount: '$2,624 for 16 · $3,280 for 20', perPerson: '$164 pp' },
+    { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285 pp' },
+    { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33 pp' },
     { item: 'Groceries', amount: 'TBD', perPerson: 'TBD' },
   ],
   context2023:
@@ -359,28 +367,29 @@ export const glossary = [
 
 // ---------- SCOREBOARD FALLBACK ----------
 // Used until SCORES_CSV_URL is set. Shaped exactly like parsed CSV data.
-// Sample scores riff on the 2023 finals so the UI has something to show.
+// Mirrors the sheet's current state (7/18/26): five teams A–E, boards
+// cleared for 2026, tally as entered in the sheet.
+
+const emptyHoles = () => Array(18).fill(null)
 
 export const scoreboardFallback = {
   isSample: true,
   day1: [
-    { team: 'Milk Bag Boys', holes: [9, 8, 10, 9, 8, 9, 10, 8, 9, null, null, null, null, null, null, null, null, null] },
-    { team: 'Hog Fockers', holes: [10, 9, 9, 8, 10, 9, 9, 9, 10, null, null, null, null, null, null, null, null, null] },
-    { team: 'Good Luck Cucks', holes: [9, 10, 9, 10, 9, 8, 10, 9, 9, null, null, null, null, null, null, null, null, null] },
-    { team: 'Hog Fathers', holes: [11, 10, 10, 9, 11, 10, 9, 10, 11, null, null, null, null, null, null, null, null, null] },
+    { team: 'Team A', holes: emptyHoles() },
+    { team: 'Team B', holes: emptyHoles() },
+    { team: 'Team C', holes: emptyHoles() },
+    { team: 'Team D', holes: emptyHoles() },
+    { team: 'Team E', holes: emptyHoles() },
   ],
   day2: [
-    { team: 'Milk Bag Boys', holes: Array(18).fill(null) },
-    { team: 'Hog Fockers', holes: Array(18).fill(null) },
-    { team: 'Good Luck Cucks', holes: Array(18).fill(null) },
-    { team: 'Hog Fathers', holes: Array(18).fill(null) },
+    { team: 'Team A', holes: emptyHoles() },
+    { team: 'Team B', holes: emptyHoles() },
+    { team: 'Team C', holes: emptyHoles() },
+    { team: 'Team D', holes: emptyHoles() },
+    { team: 'Team E', holes: emptyHoles() },
   ],
   tally: [
-    { name: 'Carlos', count: 10 },
-    { name: 'Derek', count: 10 },
-    { name: 'Wilder', count: 7 },
-    { name: 'Dirty', count: 6 },
-    { name: 'Billy', count: 4 },
-    { name: 'DVW', count: 3 },
+    { name: 'Derek', count: 32 },
+    { name: 'Carlos', count: 0 },
   ],
 }
