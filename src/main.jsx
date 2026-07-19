@@ -1,3 +1,7 @@
+// Bundle loaded fine — clear the stale-deploy recovery flag so a future
+// failure can trigger its one reload.
+sessionStorage.removeItem('shmully-recovered')
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
