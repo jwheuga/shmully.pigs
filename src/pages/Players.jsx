@@ -1,6 +1,10 @@
 import SignHeader from '../components/SignHeader.jsx'
 import { players } from '../data/content.ts'
 
+// Alphabetical by last name (single-named pigs sort by that name)
+const lastName = (n) => n.trim().split(' ').at(-1).toLowerCase()
+const roster = [...players].sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)))
+
 function PortraitArea({ p }) {
   if (p.portraitImg) {
     return (
@@ -31,7 +35,7 @@ export default function Players() {
       <SignHeader title="The 2026 Roster" elev={`${players.length} CONFIRMED PIGS`} />
 
       <div className="player-grid">
-        {players.map((p) => (
+        {roster.map((p) => (
           <div className="card player-card" key={p.name}>
             <PortraitArea p={p} />
             <div className="player-info">
