@@ -81,7 +81,7 @@ export const players: Player[] = [
   { name: 'Matt Wilson', handle: 'Wilson', handicap: 12.5, group: 'C', house: true },
   { name: 'Taylor Telling', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'D', house: false },
   { name: 'Daniel Wiechert', handicap: 14, group: 'D', house: true },
-  { name: 'Matt Dillon', handle: 'Matty Dood', nickname: 'His Doodness', portraitImg: '/players/matty-dood.webp', portraitPos: 'center 10%', portrait: 'https://share.gemini.google/KwPQLGolYUc9', handicap: 18, group: 'D', house: false },
+  { name: 'Matt Dillon', handle: 'Matty Dood', nickname: 'His Doodness', portraitImg: '/players/matty-dood.webp', portraitPos: 'center 20%', portrait: 'https://share.gemini.google/KwPQLGolYUc9', handicap: 18, group: 'D', house: false },
   { name: 'Harvy', nickname: 'Wallbanger', handicap: 23, group: 'D', house: true },
   { name: 'Franco', nickname: 'Franco', portraitImg: '/players/franco.webp', portrait: 'https://share.gemini.google/Z2NIqiPMKtNq', handicap: 9, group: 'E', house: false },
   { name: 'Matt Albrecht', handle: 'Albright', handicap: 17, group: 'E', house: true },
