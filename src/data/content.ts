@@ -41,7 +41,7 @@ export const trip = {
 
 export const reigningChampions = {
   champs: [
-    { name: 'Wilder', photo: '/champs/wilder-v2.webp' },
+    { name: 'Wilder', photo: '/players/wilder-v3.webp' },
     { name: 'William', photo: '/champs/william-v2.webp' },
     { name: 'Michael', photo: '/champs/michael.webp' },
     { name: 'Carlos', photo: '/champs/carlos-v2.webp' },
@@ -73,7 +73,7 @@ export const players: Player[] = [
   { name: 'Brian Wagner', handle: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'A', house: true },
   { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'A', house: true },
   { name: 'Ryan', handicap: 7, group: 'B', house: false },
-  { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'B', house: true },
+  { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder-v3.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'B', house: true },
   { name: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
   { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 8, group: 'C', house: true },
   { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'THE Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'C', house: true },
