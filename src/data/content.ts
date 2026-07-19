@@ -41,10 +41,10 @@ export const trip = {
 
 export const reigningChampions = {
   champs: [
-    { name: 'Wilder', photo: '/champs/wilder.webp' },
-    { name: 'William', photo: '/champs/william.webp' },
+    { name: 'Wilder', photo: '/champs/wilder-v2.webp' },
+    { name: 'William', photo: '/champs/william-v2.webp' },
     { name: 'Michael', photo: '/champs/michael.webp' },
-    { name: 'Carlos', photo: '/champs/carlos.webp' },
+    { name: 'Carlos', photo: '/champs/carlos-v2.webp' },
   ],
   note: 'Undefeated. Unbothered. In lederhosen.',
 }
