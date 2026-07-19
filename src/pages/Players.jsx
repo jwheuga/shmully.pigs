@@ -9,7 +9,7 @@ function PortraitArea({ p }) {
   if (p.portraitImg) {
     return (
       <a href={p.portraitImg} target="_blank" rel="noreferrer" className="player-portrait" title={`${p.name} — full portrait`}>
-        <img src={p.portraitImg} alt={p.name} loading="lazy" />
+        <img src={p.portraitImg} alt={p.name} loading="lazy" style={p.portraitPos ? { objectPosition: p.portraitPos } : undefined} />
       </a>
     )
   }
