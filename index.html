@@ -10,6 +10,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // If the JS bundle fails to load (stale HTML referencing a replaced
+      // deploy's assets), force one fresh reload instead of a dead page.
+      window.addEventListener(
+        'error',
+        function (e) {
+          var t = e.target
+          if (t && (t.tagName === 'SCRIPT' || t.tagName === 'LINK') && !sessionStorage.getItem('shmully-recovered')) {
+            sessionStorage.setItem('shmully-recovered', '1')
+            location.reload()
+          }
+        },
+        true
+      )
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
