@@ -68,14 +68,14 @@ export interface Player {
 }
 
 export const players: Player[] = [
-  { name: 'Nick Cantelmi', nickname: 'Lowest handicap in the sty', portrait: 'https://share.gemini.google/ejmtO2IiN633', handicap: 5, group: 'A', house: true },
-  { name: 'Dustin Oreilly', handle: 'Dirty', nickname: 'Founding pig energy', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'A', house: true },
-  { name: 'Wagner', nickname: 'Porsche Licker', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'A', house: true },
-  { name: 'Tony Savino', nickname: 'Jerome', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'A', house: true },
+  { name: 'Nick Cantelmi', nickname: 'Lowest handicap in the sty', portraitImg: '/players/nick.webp', portrait: 'https://share.gemini.google/ejmtO2IiN633', handicap: 5, group: 'A', house: true },
+  { name: 'Dustin Oreilly', handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'A', house: true },
+  { name: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'A', house: true },
+  { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'A', house: true },
   { name: 'Ryan', handicap: 7, group: 'B', house: false },
-  { name: 'Wilder Heuga', nickname: 'Reigning champion', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'B', house: true },
-  { name: 'Hunter', nickname: 'Long ball bargin hunter', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
-  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', handicap: 8, group: 'C', house: true },
+  { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'B', house: true },
+  { name: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
+  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 8, group: 'C', house: true },
   { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'THE Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'C', house: true },
   { name: 'Matt Wilson', handle: 'Wilson', handicap: 12.5, group: 'C', house: true },
   { name: 'Taylor Telling', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'D', house: false },
@@ -85,7 +85,7 @@ export const players: Player[] = [
   { name: 'Franco', portraitImg: '/players/franco.webp', portrait: 'https://share.gemini.google/Z2NIqiPMKtNq', handicap: 9, group: 'E', house: false },
   { name: 'Matt Albrecht', handle: 'Albright', handicap: 17, group: 'E', house: true },
   { name: 'Dylan Hall', nickname: 'Lon', portraitImg: '/players/dylan.webp', portrait: 'https://share.gemini.google/pHr0sw8Y76c8', handicap: 20, group: 'E', house: false },
-  { name: 'Zach Adamson', nickname: 'Lyle', portrait: 'https://share.gemini.google/S8KnqfhXMyHN', handicap: 20, group: 'E', house: false },
+  { name: 'Zach Adamson', nickname: 'Lyle', portraitImg: '/players/zach.webp', portrait: 'https://share.gemini.google/S8KnqfhXMyHN', handicap: 20, group: 'E', house: false },
 ]
 
 // ---------- TEAMS ----------
