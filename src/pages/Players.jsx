@@ -1,35 +1,28 @@
 import SignHeader from '../components/SignHeader.jsx'
 import { players } from '../data/content.ts'
 
-function Avatar({ p }) {
-  const style = {
-    width: 52,
-    height: 52,
-    borderRadius: '50%',
-    overflow: 'hidden',
-    border: '2px solid var(--brass)',
-    background: 'var(--parchment)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '1.4rem',
-    flex: '0 0 auto',
-  }
+function PortraitArea({ p }) {
   if (p.portraitImg) {
     return (
-      <a href={p.portraitImg} target="_blank" rel="noreferrer" title={`${p.name} — full portrait`} style={style}>
-        <img src={p.portraitImg} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <a href={p.portraitImg} target="_blank" rel="noreferrer" className="player-portrait" title={`${p.name} — full portrait`}>
+        <img src={p.portraitImg} alt={p.name} loading="lazy" />
       </a>
     )
   }
   if (p.portrait) {
     return (
-      <a href={p.portrait} target="_blank" rel="noreferrer" title={`${p.name} — view portrait`} style={{ ...style, textDecoration: 'none' }}>
-        📸
+      <a href={p.portrait} target="_blank" rel="noreferrer" className="player-portrait placeholder" title={`${p.name} — view portrait`}>
+        <span className="ph-emoji">📸</span>
+        <span className="ph-label">VIEW PORTRAIT ↗</span>
       </a>
     )
   }
-  return <div style={style}>🐷</div>
+  return (
+    <div className="player-portrait placeholder">
+      <span className="ph-emoji">🐷</span>
+      <span className="ph-label">PORTRAIT PENDING</span>
+    </div>
+  )
 }
 
 export default function Players() {
@@ -37,30 +30,21 @@ export default function Players() {
     <div className="page">
       <SignHeader title="The 2026 Roster" elev={`${players.length} CONFIRMED PIGS`} />
 
-      <div className="grid-2 collapse">
+      <div className="player-grid">
         {players.map((p) => (
-          <div className="card" key={p.name} style={{ marginTop: 0 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: '0.95rem' }}>{p.name}</div>
-                {p.nickname && (
-                  <div className="muted" style={{ fontSize: '0.78rem', fontStyle: 'italic' }}>"{p.nickname}"</div>
+          <div className="card player-card" key={p.name}>
+            <PortraitArea p={p} />
+            <div className="player-info">
+              <div className="player-name">{p.name}</div>
+              {p.nickname && <div className="player-nick">"{p.nickname}"</div>}
+              <div className="player-badges">
+                {p.handicap != null ? (
+                  <span className="badge green">HCP {p.handicap}</span>
+                ) : (
+                  <span className="badge outline">HCP TBD</span>
                 )}
+                {p.house ? <span className="badge sky">HOUSE</span> : <span className="badge outline">OFF-SITE</span>}
               </div>
-              <Avatar p={p} />
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', marginTop: '0.5rem' }}>
-              {p.handicap != null ? (
-                <span className="badge green">HCP {p.handicap}</span>
-              ) : (
-                <span className="badge outline">HCP TBD</span>
-              )}
-              {p.house ? <span className="badge sky">HOUSE</span> : <span className="badge outline">OFF-SITE</span>}
-              {p.portrait && !p.portraitImg && (
-                <a className="badge brass" href={p.portrait} target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                  PORTRAIT ↗
-                </a>
-              )}
             </div>
           </div>
         ))}

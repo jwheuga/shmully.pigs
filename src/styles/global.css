@@ -661,6 +661,70 @@ table.scorecard td.subtotal { background: rgba(217, 195, 154, 0.4); font-weight:
   color: var(--meadow-dark);
 }
 
+/* ---------- Player cards (roster) ---------- */
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+@media (min-width: 640px) { .player-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.card.player-card { padding: 0; overflow: hidden; margin-top: 0; display: flex; flex-direction: column; }
+
+.player-portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--parchment);
+  border-bottom: 2.5px solid var(--brass);
+}
+
+.player-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.player-portrait.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(217, 195, 154, 0.18) 0 10px,
+    rgba(217, 195, 154, 0.38) 10px 20px
+  );
+}
+
+.player-portrait.placeholder .ph-emoji { font-size: 2.6rem; }
+
+.player-portrait.placeholder .ph-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--wood);
+}
+
+.player-info { padding: 0.6rem 0.75rem 0.75rem; }
+
+.player-info .player-name { font-weight: 800; font-size: 0.92rem; line-height: 1.25; }
+
+.player-info .player-nick {
+  font-size: 0.76rem;
+  font-style: italic;
+  color: rgba(61, 43, 26, 0.68);
+  margin-top: 0.1rem;
+}
+
+.player-info .player-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+
 /* ---------- Footer ---------- */
 
 .site-footer {
