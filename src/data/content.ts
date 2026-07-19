@@ -70,14 +70,14 @@ export interface Player {
 
 export const players: Player[] = [
   { name: 'Nick Cantelmi', nickname: 'Lowest handicap in the sty', portraitImg: '/players/nick.webp', portrait: 'https://share.gemini.google/ejmtO2IiN633', handicap: 5, group: 'A', house: true },
-  { name: 'Dustin Oreilly', handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'A', house: true },
+  { name: "Dustin O'Reilly", handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'A', house: true },
   { name: 'Brian Wagner', handle: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'A', house: true },
   { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'A', house: true },
   { name: 'Ryan', handicap: 7, group: 'B', house: false },
   { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder-v3.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'B', house: true },
-  { name: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
-  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 8, group: 'C', house: true },
-  { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'THE Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'C', house: true },
+  { name: 'Hunter Snyder', handle: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
+  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 12, group: 'C', house: true },
+  { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'The Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'C', house: true },
   { name: 'Matt Wilson', handle: 'Wilson', portraitImg: '/players/wilson.webp', handicap: 12.5, group: 'C', house: true },
   { name: 'Taylor Telling', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'D', house: false },
   { name: 'Daniel Wiechert', portraitImg: '/players/daniel.webp', handicap: 14, group: 'D', house: true },
@@ -179,6 +179,16 @@ export const courses = [
 
 export const arrivals = [
   { player: 'DVW', arrive: 'Thu 7/30 · DIA 1:20p', depart: 'Sun 8/2 · DIA 5:15p' },
+  { player: 'Nick Cantelmi', arrive: 'Thu 7/30 · DIA 1:45p', depart: 'Sun 8/2 · DIA 4:00p' },
+  { player: 'Daniel Wiechert', arrive: 'Thu 7/30 · DIA 1:45p', depart: 'Sun 8/2 · DIA 4:00p' },
+  { player: 'Wilder Heuga', arrive: 'Thu 7/30 · DIA 11:30a (Southwest)', depart: 'N/A' },
+  { player: 'Brian Wagner', arrive: 'Thu 7/30 · DIA 11:30a (Southwest)', depart: 'TBD' },
+  { player: 'Matt Albrecht', arrive: 'Mon 7/27 · Eagle', depart: 'TBD' },
+  { player: 'Hunter', arrive: 'Thu 7/30 · Eagle', depart: 'Sun 8/2 · Eagle' },
+  { player: 'Tony', arrive: 'Thu 7/30 · DIA 1:30p', depart: 'Sun 8/2 · DIA 5:35p' },
+  { player: 'Dustin', arrive: 'TBD', depart: 'TBD' },
+  { player: 'William', arrive: 'TBD', depart: 'TBD' },
+  { player: 'Wilson', arrive: 'TBD', depart: 'TBD' },
 ]
 
 // ---------- FORMAT / RULES / AWARDS ----------
