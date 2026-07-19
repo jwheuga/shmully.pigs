@@ -17,9 +17,9 @@ function Avatar({ p }) {
   }
   if (p.portraitImg) {
     return (
-      <div style={style}>
+      <a href={p.portraitImg} target="_blank" rel="noreferrer" title={`${p.name} — full portrait`} style={style}>
         <img src={p.portraitImg} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      </div>
+      </a>
     )
   }
   if (p.portrait) {
