@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Nav from './components/Nav.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Home from './pages/Home.jsx'
 import Agenda from './pages/Agenda.jsx'
 import House from './pages/House.jsx'
@@ -24,19 +25,21 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/agenda" element={<Agenda />} />
-        <Route path="/house" element={<House />} />
-        <Route path="/beds" element={<Beds />} />
-        <Route path="/players" element={<Players />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="/rules" element={<Rules />} />
-        <Route path="/scoreboard" element={<Scoreboard />} />
-        <Route path="/money" element={<Money />} />
-        <Route path="/new-pigs" element={<NewPigs />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/agenda" element={<Agenda />} />
+          <Route path="/house" element={<House />} />
+          <Route path="/beds" element={<Beds />} />
+          <Route path="/players" element={<Players />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/rules" element={<Rules />} />
+          <Route path="/scoreboard" element={<Scoreboard />} />
+          <Route path="/money" element={<Money />} />
+          <Route path="/new-pigs" element={<NewPigs />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </ErrorBoundary>
       <footer className="site-footer">
         <p className="eyebrow">Shmully {trip.year} · {trip.location} · {trip.elevation}</p>
         <p style={{ marginTop: '0.4rem', fontSize: '0.85rem' }}>No shmullies on the greens. 🐷</p>
