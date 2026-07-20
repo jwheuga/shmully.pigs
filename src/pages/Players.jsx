@@ -2,7 +2,10 @@ import SignHeader from '../components/SignHeader.jsx'
 import { players } from '../data/content.ts'
 
 // Alphabetical by last name (single-named pigs sort by that name)
-const lastName = (n) => n.trim().split(' ').at(-1).toLowerCase()
+const lastName = (n) => {
+  const parts = n.trim().split(' ')
+  return parts[parts.length - 1].toLowerCase()
+}
 const roster = [...players].sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)))
 
 function PortraitArea({ p }) {
