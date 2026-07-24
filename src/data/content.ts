@@ -119,6 +119,7 @@ export const agenda = [
     date: 'July 30',
     emoji: '🍺',
     items: [
+      { time: '7:30p', what: 'Welcome Drinks at El Segundo Vail', link: 'https://www.google.com/maps/search/?api=1&query=El+Segundo+Vail+CO', linkLabel: 'Map' },
       { time: 'Evening', what: 'Opening Ceremony — welcomes, thank-yous, and every new pig competitor shotguns a beer' },
       { time: '', what: 'Pairings, formats & rules announced' },
       { time: '', what: 'Dinner' },
