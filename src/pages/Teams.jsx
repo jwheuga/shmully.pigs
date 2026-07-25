@@ -3,24 +3,32 @@ import { teams, players } from '../data/content.ts'
 
 function Squad({ g }) {
   const members = players.filter((p) => p.group === g)
-  const tbd = teams.tbdSlots?.[g] || 0
   const avg = teams.avgHandicaps?.[g]
   return (
-    <div className="card" style={{ marginTop: 0 }}>
+    <div className="card gingham">
+      <div className="gingham-strip" />
       <h3>
         Team {g}{' '}
         {avg != null && <span className="badge tan">AVG {avg}</span>}
       </h3>
-      <div style={{ marginTop: '0.2rem' }}>
+      <div className="team-emblems">
         {members.map((p) => (
-          <span className="sleeper" key={p.name}>
-            {p.name} · {p.handicap}
-          </span>
-        ))}
-        {Array.from({ length: tbd }).map((_, i) => (
-          <span className="sleeper" key={`tbd${i}`} style={{ borderStyle: 'dashed', opacity: 0.7 }}>
-            4th man · TBD
-          </span>
+          <div className="emblem" key={p.name}>
+            <div className="emblem-photo">
+              {p.portraitImg ? (
+                <img
+                  src={p.portraitImg}
+                  alt={p.name}
+                  loading="lazy"
+                  style={p.portraitPos ? { objectPosition: p.portraitPos } : undefined}
+                />
+              ) : (
+                '🐷'
+              )}
+            </div>
+            <div className="emblem-name">{p.name}</div>
+            <div className="emblem-hcp">HCP {p.handicap}</div>
+          </div>
         ))}
       </div>
     </div>
@@ -53,7 +61,7 @@ export default function Teams() {
         <p style={{ fontSize: '0.9rem', marginTop: '0.4rem' }}>{teams.round2Note}</p>
       </div>
 
-      <div className="grid-2" style={{ marginTop: '0.85rem' }}>
+      <div style={{ marginTop: '0.85rem' }}>
         {teams.groups.map((g) => (
           <Squad key={g} g={g} />
         ))}
