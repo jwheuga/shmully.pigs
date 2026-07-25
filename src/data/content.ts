@@ -70,25 +70,25 @@ export interface Player {
 }
 
 export const players: Player[] = [
-  { name: 'Nick Cantelmi', nickname: 'Lowest handicap in the sty', portraitImg: '/players/nick.webp', portrait: 'https://share.gemini.google/ejmtO2IiN633', handicap: 6.5, group: 'A', house: true },
-  { name: "Dustin O'Reilly", handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'A', house: true },
-  { name: 'Brian Wagner', handle: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'C', house: true },
-  { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'A', house: true },
-  { name: 'Ryan', nickname: 'Bovine-in-law', handicap: 7, group: 'E', house: false },
+  { name: 'Nick Cantelmi', nickname: 'Lowest handicap in the sty', portraitImg: '/players/nick.webp', portrait: 'https://share.gemini.google/ejmtO2IiN633', handicap: 6.5, group: 'D', house: true },
+  { name: "Dustin O'Reilly", handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'C', house: true },
+  { name: 'Brian Wagner', handle: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'E', house: true },
+  { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'D', house: true },
+  { name: 'Ryan', nickname: 'Bovine-in-law', handicap: 7, group: 'A', house: false },
   { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder-v3.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'C', house: true },
   { name: 'Hunter Snyder', handle: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
-  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 12, group: 'C', house: true },
-  { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'The Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'A', house: true },
-  { name: 'Matt Wilson', handle: 'Wilson', nickname: 'Hide the sausage', portraitImg: '/players/wilson.webp', handicap: 12.5, group: 'E', house: true },
-  { name: 'Taylor Telling', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'B', house: false },
-  { name: 'Daniel Wiechert', nickname: 'High on the hog', portraitImg: '/players/daniel.webp', handicap: 14, group: 'C', house: true },
+  { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 12, group: 'E', house: true },
+  { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'The Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'D', house: true },
+  { name: 'Matt Wilson', handle: 'Wilson', nickname: 'Hide the sausage', portraitImg: '/players/wilson.webp', handicap: 12.5, group: 'A', house: true },
+  { name: 'Taylor Telling', nickname: 'Tay Tay Twinkle Toes', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'B', house: false },
+  { name: 'Daniel Wiechert', nickname: 'High on the hog', portraitImg: '/players/daniel.webp', handicap: 14, group: 'D', house: true },
   { name: 'Matt Dillon', handle: 'Matty Dood', nickname: 'His Doodness', portraitImg: '/players/matty-dood.webp', portraitPos: 'center 20%', portrait: 'https://share.gemini.google/KwPQLGolYUc9', handicap: 18, group: 'B', house: false },
-  { name: 'Harvy', nickname: 'Wallbanger', handicap: 23, group: 'E', house: true },
-  { name: 'Adam Ranken', handicap: 20, group: 'D', house: false },
-  { name: 'Franco', nickname: 'Franco', portraitImg: '/players/franco.webp', portrait: 'https://share.gemini.google/Z2NIqiPMKtNq', handicap: 15, group: 'D', house: false },
-  { name: 'Jordy Coffee', portraitImg: '/players/jordy.webp', handicap: 15, group: 'D', house: false },
-  { name: 'Matt Albrecht', handle: 'Albright', nickname: 'The Brechtest wizard of her age', portraitImg: '/players/albrecht.webp', handicap: 17, group: 'E', house: true },
-  { name: 'Dylan Hall', nickname: 'Lon', portraitImg: '/players/dylan.webp', portrait: 'https://share.gemini.google/pHr0sw8Y76c8', handicap: 20, group: 'D', house: false },
+  { name: 'Harvy', nickname: 'Wallbanger', handicap: 23, group: 'A', house: true },
+  { name: 'Adam Ranken', nickname: 'RankDog', handicap: 20, group: 'C', house: false },
+  { name: 'Franco', nickname: 'Franco', portraitImg: '/players/franco.webp', portrait: 'https://share.gemini.google/Z2NIqiPMKtNq', handicap: 15, group: 'E', house: false },
+  { name: 'Jordy Coffee', nickname: 'Espresso/Domingo', portraitImg: '/players/jordy.webp', handicap: 15, group: 'E', house: false },
+  { name: 'Matt Albrecht', handle: 'Albright', nickname: 'The Brechtest wizard of her age', portraitImg: '/players/albrecht.webp', handicap: 17, group: 'A', house: true },
+  { name: 'Dylan Hall', nickname: 'Lon', portraitImg: '/players/dylan.webp', portrait: 'https://share.gemini.google/pHr0sw8Y76c8', handicap: 20, group: 'C', house: false },
   { name: 'Zach Adamson', nickname: 'Lyle', portraitImg: '/players/zach.webp', portrait: 'https://share.gemini.google/S8KnqfhXMyHN', handicap: 20, group: 'B', house: false },
 ]
 
@@ -99,8 +99,8 @@ export const players: Player[] = [
 export const teams = {
   revealed: true,
   groups: ['A', 'B', 'C', 'D', 'E'],
-  // 4 players per squad. D now complete with Adam Ranken (17.5 avg).
-  avgHandicaps: { A: 14.625, B: 16.55, C: 15, D: 17.5, E: 14.875 },
+  // 4 players per squad. Re-drawn 7/21 for tighter handicap balance.
+  avgHandicaps: { A: 14.875, B: 16.55, C: 15.25, D: 15.875, E: 16 },
   round1Note: 'Round 1 · Fri · Vail GC — each squad plays Shamble, best 2 balls, stroke play.',
   round2Note: 'Round 2 · Sat · Red Sky — squads recombine into mixed foursomes (Adjusted Individual Stroke: drop the worst, add the best three).',
   pastTeamNames: ['Good Luck Cucks', 'Hog Fockers', 'Milk Bag Boys', 'Hog Fathers'],
