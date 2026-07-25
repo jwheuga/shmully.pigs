@@ -33,7 +33,7 @@ CSV FORMAT the scoreboard expects (one header row, then data rows):
 export const trip = {
   year: 2026,
   location: 'Vail, CO',
-  elevation: 'ELEV 11,500 FT',
+  elevation: 'ELEV 8,150 FT',
   dates: 'Thursday July 30 – Sunday August 2, 2026',
   explainer:
     'A "Shmully" is a shotgun mulligan: call it, shotgun an entire beer, and immediately hit your do-over. It is also the name of this entire glorious weekend.',
