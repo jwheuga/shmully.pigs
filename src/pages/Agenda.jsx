@@ -14,7 +14,17 @@ export default function Agenda() {
             {day.items.map((it, i) => (
               <div className="agenda-item" key={i}>
                 <div className="agenda-time">{it.time || '—'}</div>
-                <div className="agenda-what">{it.what}</div>
+                <div className="agenda-what">
+                  {it.what}
+                  {it.link && (
+                    <>
+                      {' '}
+                      <a href={it.link} target="_blank" rel="noreferrer" style={{ fontWeight: 700, whiteSpace: 'nowrap' }}>
+                        📍 {it.linkLabel || 'Map'}
+                      </a>
+                    </>
+                  )}
+                </div>
               </div>
             ))}
           </div>
