@@ -1,19 +1,62 @@
 import SignHeader from '../components/SignHeader.jsx'
-import { teams } from '../data/content.ts'
+import { teams, players } from '../data/content.ts'
+
+function Squad({ g }) {
+  const members = players.filter((p) => p.group === g)
+  const tbd = teams.tbdSlots?.[g] || 0
+  const avg = teams.avgHandicaps?.[g]
+  return (
+    <div className="card" style={{ marginTop: 0 }}>
+      <h3>
+        Team {g}{' '}
+        {avg != null && <span className="badge tan">AVG {avg}</span>}
+      </h3>
+      <div style={{ marginTop: '0.2rem' }}>
+        {members.map((p) => (
+          <span className="sleeper" key={p.name}>
+            {p.name} · {p.handicap}
+          </span>
+        ))}
+        {Array.from({ length: tbd }).map((_, i) => (
+          <span className="sleeper" key={`tbd${i}`} style={{ borderStyle: 'dashed', opacity: 0.7 }}>
+            4th man · TBD
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Teams() {
+  if (!teams.revealed) {
+    return (
+      <div className="page">
+        <SignHeader title="Teams" elev="CLASSIFIED" />
+        <div className="champs-banner wood-panel screws" style={{ marginTop: '1.2rem' }}>
+          <div className="champs-title carved">🐷 Teams Will Be Revealed Soon 🐷</div>
+          <p style={{ marginTop: '0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--tan)' }}>
+            Announced at the Opening Ceremony · Thursday 7/30
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="page">
-      <SignHeader title="Teams" elev="CLASSIFIED" />
+      <SignHeader title="Teams" elev="5 SQUADS · A THROUGH E" />
 
-      <div className="champs-banner wood-panel screws" style={{ marginTop: '1.2rem' }}>
-        <div className="champs-title carved">🐷 Teams Will Be Revealed Soon 🐷</div>
-        <p style={{ marginTop: '0.6rem', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--tan)' }}>
-          {teams.revealNote}
-        </p>
-        <p style={{ marginTop: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--tan)', opacity: 0.75 }}>
-          Announced at the Opening Ceremony · Thursday 7/30
-        </p>
+      <div className="card gingham">
+        <div className="gingham-strip" />
+        <h3>⛳ How It Works</h3>
+        <p style={{ fontSize: '0.9rem' }}>{teams.round1Note}</p>
+        <p style={{ fontSize: '0.9rem', marginTop: '0.4rem' }}>{teams.round2Note}</p>
+      </div>
+
+      <div className="grid-2" style={{ marginTop: '0.85rem' }}>
+        {teams.groups.map((g) => (
+          <Squad key={g} g={g} />
+        ))}
       </div>
 
       <SignHeader title="Team Name Hall of Fame" elev="CHOOSE WISELY" />

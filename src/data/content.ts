@@ -84,6 +84,7 @@ export const players: Player[] = [
   { name: 'Daniel Wiechert', nickname: 'High on the hog', portraitImg: '/players/daniel.webp', handicap: 14, group: 'C', house: true },
   { name: 'Matt Dillon', handle: 'Matty Dood', nickname: 'His Doodness', portraitImg: '/players/matty-dood.webp', portraitPos: 'center 20%', portrait: 'https://share.gemini.google/KwPQLGolYUc9', handicap: 18, group: 'B', house: false },
   { name: 'Harvy', nickname: 'Wallbanger', handicap: 23, group: 'E', house: true },
+  { name: 'Adam Ranken', handicap: 20, group: 'D', house: false },
   { name: 'Franco', nickname: 'Franco', portraitImg: '/players/franco.webp', portrait: 'https://share.gemini.google/Z2NIqiPMKtNq', handicap: 15, group: 'D', house: false },
   { name: 'Jordy Coffee', portraitImg: '/players/jordy.webp', handicap: 15, group: 'D', house: false },
   { name: 'Matt Albrecht', handle: 'Albright', nickname: 'The Brechtest wizard of her age', portraitImg: '/players/albrecht.webp', handicap: 17, group: 'E', house: true },
@@ -92,11 +93,16 @@ export const players: Player[] = [
 ]
 
 // ---------- TEAMS ----------
-// Groupings are under wraps until the reveal — player group fields stay in
-// the data above but are not rendered anywhere.
+// Official as of the reveal. Set revealed:false to hide again. Squad rosters
+// render from each player's `group` field above; averages are the sheet's.
 
 export const teams = {
-  revealNote: 'Pairings are locked in a vault in the Alps.',
+  revealed: true,
+  groups: ['A', 'B', 'C', 'D', 'E'],
+  // 4 players per squad. D now complete with Adam Ranken (17.5 avg).
+  avgHandicaps: { A: 14.625, B: 16.55, C: 15, D: 17.5, E: 14.875 },
+  round1Note: 'Round 1 · Fri · Vail GC — each squad plays Shamble, best 2 balls, stroke play.',
+  round2Note: 'Round 2 · Sat · Red Sky — squads recombine into mixed foursomes (Adjusted Individual Stroke: drop the worst, add the best three).',
   pastTeamNames: ['Good Luck Cucks', 'Hog Fockers', 'Milk Bag Boys', 'Hog Fathers'],
 }
 
