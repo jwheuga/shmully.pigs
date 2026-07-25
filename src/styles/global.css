@@ -725,6 +725,51 @@ table.scorecard td.subtotal { background: rgba(217, 195, 154, 0.4); font-weight:
 
 .player-info .player-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
 
+/* ---------- Team emblems (Teams page) ---------- */
+
+.team-emblems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+}
+
+.emblem { text-align: center; min-width: 0; }
+
+.emblem-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--brass);
+  background:
+    repeating-linear-gradient(-45deg, rgba(217, 195, 154, 0.25) 0 8px, rgba(217, 195, 154, 0.45) 8px 16px),
+    var(--wood-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 2px 5px rgba(44, 31, 18, 0.3);
+}
+
+.emblem-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+
+.emblem-name {
+  font-weight: 800;
+  font-size: 0.72rem;
+  line-height: 1.15;
+  margin-top: 0.35rem;
+  color: var(--wood-darkest);
+}
+
+.emblem-hcp {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--meadow-dark);
+  margin-top: 0.05rem;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
