@@ -230,8 +230,12 @@ export const rules = [
   },
   { name: 'Lateral Rules', text: 'Hit OB, option to take distance, drop, add a stroke, hit.' },
   {
-    name: 'Scramble/Shamble Drives',
-    text: '4-man formats: each group must use at least 1 drive from each of their players during the round. 2-man formats: at least 2 drives from each player.',
+    name: 'Day 1 — Scramble (Best Ball)',
+    text: 'Everyone tees off, the team plays the single best shot, and everyone hits again from there until it’s holed. You must use at least one drive from each player during the round.',
+  },
+  {
+    name: 'Day 2 — Shamble (2-Man)',
+    text: 'You and your teammate both tee off and take the better of the two drives — you must use at least two drives from each player over the round — then each of you plays your own ball from that spot to the hole.',
   },
   {
     name: 'Putting',
