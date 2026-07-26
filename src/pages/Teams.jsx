@@ -27,7 +27,7 @@ function Squad({ g }) {
               )}
             </div>
             <div className="emblem-name">{p.name}</div>
-            <div className="emblem-hcp">HCP {p.handicap}</div>
+            <div className="emblem-hcp">HCP {p.handicap ?? 'TBD'}</div>
           </div>
         ))}
       </div>
