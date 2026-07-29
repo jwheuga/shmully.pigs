@@ -19,6 +19,23 @@ export default function House() {
         </p>
       </div>
 
+      {house.wifi && (
+        <div className="card gingham">
+          <div className="gingham-strip" />
+          <h3>📶 Wi-Fi</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem 1.2rem', marginTop: '0.2rem' }}>
+            <div>
+              <div className="eyebrow">Network</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: '1.05rem' }}>{house.wifi.network}</div>
+            </div>
+            <div>
+              <div className="eyebrow">Password</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: '1.05rem' }}>{house.wifi.password}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {house.sections.map((s) => (
         <div className="card" key={s.title}>
           <h3>{s.icon} {s.title}</h3>
