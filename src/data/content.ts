@@ -74,7 +74,7 @@ export const players: Player[] = [
   { name: "Dustin O'Reilly", handle: 'Dirty', nickname: 'Founding pig energy', portraitImg: '/players/dustin.webp', portrait: 'https://share.gemini.google/Dfa4Kl2vTzc4', handicap: 9, group: 'C', house: true },
   { name: 'Brian Wagner', handle: 'Wagner', nickname: 'Porsche Licker', portraitImg: '/players/wagner.webp', portrait: 'https://share.gemini.google/vocXccj0qnli', handicap: 22, group: 'E', house: true },
   { name: 'Tony Savino', nickname: 'Jerome', portraitImg: '/players/tony.webp', portrait: 'https://share.gemini.google/QL1CGHOYLgus', handicap: 25, group: 'D', house: true },
-  { name: 'Ryan', nickname: 'Bovine-in-law', handicap: 7, group: 'A', house: false },
+  { name: 'Ryan Smith', nickname: 'Bovine-in-law', portraitImg: '/players/ryan.webp', handicap: 7, group: 'A', house: false },
   { name: 'Wilder Heuga', nickname: 'Reigning champion', portraitImg: '/players/wilder-v3.webp', portrait: 'https://share.gemini.google/qJqFDAJdh4cR', handicap: 12, group: 'C', house: true },
   { name: 'Hunter Snyder', handle: 'Hunter', nickname: 'Long ball bargin hunter', portraitImg: '/players/hunter.webp', portrait: 'https://share.gemini.google/bhP9zTkHkqXr', handicap: 22, group: 'B', house: true },
   { name: 'William Scheffler', handle: 'Billy', nickname: 'Reigning champion', portraitImg: '/players/william.webp', handicap: 12, group: 'E', house: true },
@@ -260,6 +260,7 @@ export const house = {
   airbnb: 'https://www.airbnb.com/rooms/1323353776394486676',
   guidebook: 'https://guide.ruebarue.com/guestbook/3402732359092041',
   map: 'https://maps.google.com/?q=4842+Meadow+Lane,+Vail,+CO',
+  wifi: { network: 'Alpine Haus', password: 'Skihouse' },
   sections: [
     {
       title: 'Getting Around / Bus',
