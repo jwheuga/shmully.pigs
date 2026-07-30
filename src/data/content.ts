@@ -128,7 +128,7 @@ export const agenda = [
       { time: '7:30p', what: 'Welcome Drinks at El Segundo Vail', link: 'https://www.google.com/maps/search/?api=1&query=El+Segundo+Vail+CO', linkLabel: 'Map' },
       { time: 'Evening', what: 'Opening Ceremony — welcomes, thank-yous, and every new pig competitor shotguns a beer' },
       { time: '', what: 'Pairings, formats & rules announced' },
-      { time: '', what: 'Dinner' },
+      { time: '8:00p', what: 'Dinner reservation at El Segundo Vail', link: 'https://www.google.com/maps/search/?api=1&query=El+Segundo+Vail+CO', linkLabel: 'Map' },
     ],
   },
   {
