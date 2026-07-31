@@ -89,7 +89,7 @@ export const players: Player[] = [
   { name: 'Derek Vanwagner', handle: 'DVW', nickname: 'The Bananaman', portraitImg: '/players/derek.webp', portrait: 'https://share.gemini.google/1oPPO6VXB1vS', handicap: 18, group: 'D', house: true },
   { name: 'Matt Wilson', handle: 'Wilson', nickname: 'Hide the sausage', portraitImg: '/players/wilson.webp', handicap: 12.5, group: 'A', house: true },
   { name: 'Taylor Telling', nickname: 'Tay Tay Twinkle Toes', portraitImg: '/players/taylor.webp', portrait: 'https://share.gemini.google/ABPPqaDdFcnp', handicap: 6.2, group: 'B', house: false },
-  { name: 'Daniel Wiechert', nickname: 'High on the hog', portraitImg: '/players/daniel.webp', handicap: 14, group: 'D', house: true },
+  { name: 'The Hamm Master', nickname: 'High on the hog', portraitImg: '/players/daniel.webp', handicap: 14, group: 'D', house: true },
   { name: 'Matt Dillon', handle: 'Matty Dood', nickname: 'His Doodness', portraitImg: '/players/matty-dood.webp', portraitPos: 'center 20%', portrait: 'https://share.gemini.google/KwPQLGolYUc9', handicap: 18, group: 'B', house: false },
   { name: 'Carlos Garcia', portraitImg: '/players/carlos.webp', handicap: 23, group: 'A', house: true },
   { name: 'Adam Ranken', nickname: 'RankDog', portraitImg: '/players/adam.webp', handicap: 20, group: 'C', house: false },
@@ -119,7 +119,7 @@ export const teams = {
 
 export const beds = [
   { room: 'Bunk Room', type: 'bunk', icon: '🛏️', capacity: 6, sleepers: ['Carlos', 'Albright', 'Derek', 'Dirty', 'Tony', 'Wilson'], note: 'Shared thermostat with the room at the end of the hall — it’s on the wall behind the bunk beds.' },
-  { room: 'King Bed 1', type: 'king', icon: '👑', capacity: 2, sleepers: ['Cantelmi', 'Daniel'] },
+  { room: 'King Bed 1', type: 'king', icon: '👑', capacity: 2, sleepers: ['Cantelmi', 'The Hamm Master'] },
   { room: 'King Bed 2', type: 'king', icon: '👑', capacity: 2, sleepers: ['Wagner', 'Billy'] },
   { room: 'Queen Bed 3', type: 'queen', icon: '🛌', capacity: 1, sleepers: ['Hunter'] },
   { room: 'Queen Bed 4', type: 'queen', icon: '🛌', capacity: 1, sleepers: ['Wilder'] },
@@ -197,7 +197,7 @@ export const courses = [
 export const arrivals = [
   { player: 'DVW', arrive: 'Thu 7/30 · DIA 1:20p', depart: 'Sun 8/2 · DIA 5:15p' },
   { player: 'Nick Cantelmi', arrive: 'Thu 7/30 · DIA 1:45p', depart: 'Sun 8/2 · DIA 4:00p' },
-  { player: 'Daniel Wiechert', arrive: 'Thu 7/30 · DIA 1:45p', depart: 'Sun 8/2 · DIA 4:00p' },
+  { player: 'The Hamm Master', arrive: 'Thu 7/30 · DIA 1:45p', depart: 'Sun 8/2 · DIA 4:00p' },
   { player: 'Wilder Heuga', arrive: 'Thu 7/30 · DIA 11:30a', depart: 'N/A' },
   { player: 'Brian Wagner', arrive: 'Thu 7/30 · DIA 11:30a', depart: 'Sun 8/2 · DIA 6:45p' },
   { player: 'Matt Albrecht', arrive: 'Mon 7/27 · Eagle', depart: 'TBD' },
