@@ -19,6 +19,23 @@ export default function House() {
         </p>
       </div>
 
+      {house.entry && (
+        <div className="card gingham">
+          <div className="gingham-strip" />
+          <h3>🔑 Entry Codes</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem 1.2rem', marginTop: '0.2rem' }}>
+            <div>
+              <div className="eyebrow">Garage</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: '1.15rem', letterSpacing: '0.05em' }}>{house.entry.garage}</div>
+            </div>
+            <div>
+              <div className="eyebrow">Front Door</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, fontSize: '1.15rem', letterSpacing: '0.05em' }}>{house.entry.frontDoor}</div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {house.wifi && (
         <div className="card gingham">
           <div className="gingham-strip" />
