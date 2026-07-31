@@ -49,6 +49,14 @@ export const reigningChampions = {
   note: 'Undefeated. Unbothered. In lederhosen.',
 }
 
+// Single-day Shmully record, shown on the Home page under the champions.
+export const shmullyRecord = {
+  name: 'Derek Vanwagner',
+  photo: '/players/derek.webp',
+  count: 18,
+  detail: 'shmullies in a single day',
+}
+
 // ---------- PLAYERS ----------
 // Synced from sheet "Players 2026" (updated 7/21/26): handicaps + A–E group
 // reshuffle, Jordy Coffee added. Groups are stored but not rendered yet
@@ -260,6 +268,7 @@ export const house = {
   airbnb: 'https://www.airbnb.com/rooms/1323353776394486676',
   guidebook: 'https://guide.ruebarue.com/guestbook/3402732359092041',
   map: 'https://maps.google.com/?q=4842+Meadow+Lane,+Vail,+CO',
+  entry: { garage: '2-1-2-0', frontDoor: '7-2-3-2' },
   wifi: { network: 'Alpine Haus', password: 'Skihouse' },
   sections: [
     {
