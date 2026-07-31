@@ -49,6 +49,14 @@ export const reigningChampions = {
   note: 'Undefeated. Unbothered. In lederhosen.',
 }
 
+// Single-day Shmully record, shown on the Home page under the champions.
+export const shmullyRecord = {
+  name: 'Derek Vanwagner',
+  photo: '/players/derek.webp',
+  count: 18,
+  detail: 'shmullies in a single day',
+}
+
 // ---------- PLAYERS ----------
 // Synced from sheet "Players 2026" (updated 7/21/26): handicaps + A–E group
 // reshuffle, Jordy Coffee added. Groups are stored but not rendered yet
