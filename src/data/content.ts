@@ -42,9 +42,9 @@ export const trip = {
 export const reigningChampions = {
   champs: [
     { name: 'Wilder', photo: '/players/wilder-v3.webp' },
-    { name: 'William', photo: '/champs/william-v2.webp' },
-    { name: 'Michael', photo: '/champs/michael.webp' },
-    { name: 'Carlos', photo: '/champs/carlos-v2.webp' },
+    { name: 'Dustin', photo: '/players/dustin.webp' },
+    { name: 'Dylan Hall', photo: '/players/dylan.webp' },
+    { name: 'Adam Ranken', photo: '/players/adam.webp' },
   ],
   note: 'Undefeated. Unbothered. In lederhosen.',
 }
