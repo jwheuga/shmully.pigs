@@ -337,20 +337,36 @@ export const house = {
 // Per-person math assumes: 11 pigs at the house, 20 pigs golfing,
 // $500 groceries split by the 11 at the house.
 export const money = {
-  assumptions: 'Assumes 11 at the house, 20 golfing, $500 of groceries split by the house.',
+  assumptions: 'Assumes 12 at the house, 20 golfing, $500 of groceries split by the house.',
   lineItems: [
-    { item: 'Airbnb (4842 Meadow Lane)', amount: '$5,059.71', perPerson: '$459.97' },
+    { item: 'Airbnb (4842 Meadow Lane)', amount: '$6,429.72 for 12', perPerson: '$535.81' },
     { item: 'Vail Golf Club', amount: '$3,280 for 20', perPerson: '$164.00' },
     { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285.00' },
     { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33' },
     { item: 'Groceries (est.)', amount: '$500', perPerson: '$45.45' },
   ],
   totals: [
-    { label: 'House pig, golfing both rounds', amount: '$1,012.75' },
+    { label: 'House pig, golfing both rounds', amount: '$1,088.59' },
     { label: 'Off-site pig, golfing both rounds', amount: '$507.33' },
   ],
-  // Payments not yet logged in the sheet — flip paid:true as money lands.
-  payments: players.map((p) => ({ name: p.handle || p.name, paid: false })),
+  // How to pay Wilder back for the Airbnb.
+  zelle: { name: 'Wilder Heuga', contact: '(970) 376-5413', qr: '/zelle-qr.png' },
+  // Airbnb settlement — each house pig owes $535.81. Update `paid` as money lands.
+  airbnbShare: 535.81,
+  ledger: [
+    { name: "Dustin O'Reilly", owed: 535.81, paid: 300 },
+    { name: 'Wilder Heuga', owed: 535.81, paid: 535.81 },
+    { name: 'Derek Vanwagner', owed: 535.81, paid: 0 },
+    { name: 'Nick Cantelmi', owed: 535.81, paid: 0 },
+    { name: 'Tony Savino', owed: 535.81, paid: 0 },
+    { name: 'The Hamm Master', owed: 535.81, paid: 0 },
+    { name: 'Matt Albrecht', owed: 535.81, paid: 0 },
+    { name: 'Matt Wilson', owed: 535.81, paid: 0 },
+    { name: 'William Scheffler', owed: 535.81, paid: 0 },
+    { name: 'Brian Wagner', owed: 535.81, paid: 535.81 },
+    { name: 'Carlos Garcia', owed: 535.81, paid: 0 },
+    { name: 'Hunter Snyder', owed: 535.81, paid: 0 },
+  ],
 }
 
 // ---------- GLOSSARY (New Pig Orientation) ----------
