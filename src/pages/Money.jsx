@@ -6,7 +6,7 @@ const usd = (n) => (n < 0 ? '-$' + Math.abs(n).toFixed(2) : '$' + n.toFixed(2))
 export default function Money() {
   return (
     <div className="page">
-      <SignHeader title="Money" elev="PAY THE PIPER" />
+      <SignHeader title="Money" elev="" />
 
       <div className="card">
         <h3>💰 The Damage</h3>
@@ -38,7 +38,7 @@ export default function Money() {
         <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>{money.costNote}</p>
       </div>
 
-      <SignHeader title="Settlement" elev="PAY WILDER BACK" />
+      <SignHeader title="Settlement" elev="" />
 
       {money.zelle && (
         <div className="card gingham center">
