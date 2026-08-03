@@ -1,10 +1,9 @@
 import SignHeader from '../components/SignHeader.jsx'
 import { money } from '../data/content.ts'
 
-const usd = (n) => '$' + n.toFixed(2)
+const usd = (n) => (n < 0 ? '-$' + Math.abs(n).toFixed(2) : '$' + n.toFixed(2))
 
 export default function Money() {
-  const outstanding = money.ledger.reduce((sum, p) => sum + Math.max(0, p.owed - p.paid), 0)
   return (
     <div className="page">
       <SignHeader title="Money" elev="PAY THE PIPER" />
@@ -24,24 +23,22 @@ export default function Money() {
               {money.lineItems.map((li) => (
                 <tr key={li.item}>
                   <td className="rowlabel">{li.item}</td>
-                  <td style={{ whiteSpace: 'normal', minWidth: '6rem' }}>{li.perPerson}</td>
-                  <td style={{ whiteSpace: 'normal', minWidth: '9rem' }}>{li.amount || '—'}</td>
+                  <td style={{ whiteSpace: 'normal', minWidth: '5.5rem' }}>{li.perPerson}</td>
+                  <td style={{ whiteSpace: 'normal', minWidth: '7rem' }}>{li.amount || '—'}</td>
                 </tr>
               ))}
-              {money.totals.map((t) => (
-                <tr className="total-row" key={t.label}>
-                  <td className="rowlabel">{t.label}</td>
-                  <td>{t.amount}</td>
-                  <td />
-                </tr>
-              ))}
+              <tr className="total-row">
+                <td className="rowlabel">Shared pool</td>
+                <td />
+                <td style={{ fontWeight: 700 }}>{money.poolTotal}</td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>{money.assumptions}</p>
+        <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>{money.costNote}</p>
       </div>
 
-      <SignHeader title="Airbnb Settlement" elev="PAY WILDER BACK" />
+      <SignHeader title="Settlement" elev="PAY WILDER BACK" />
 
       {money.zelle && (
         <div className="card gingham center">
@@ -59,7 +56,7 @@ export default function Money() {
             />
           )}
           <p className="muted" style={{ marginTop: '0.5rem', fontSize: '0.82rem' }}>
-            Scan in your bank app, or send to the number above. Each house pig owes {usd(money.airbnbShare)}.
+            Scan in your bank app, or send to the number above — your amount is in the table below.
           </p>
         </div>
       )}
@@ -77,30 +74,27 @@ export default function Money() {
               </tr>
             </thead>
             <tbody>
-              {money.ledger.map((p) => {
-                const owes = Math.max(0, p.owed - p.paid)
-                return (
-                  <tr key={p.name}>
-                    <td className="rowlabel">{p.name}</td>
-                    <td>{usd(p.owed)}</td>
-                    <td>{usd(p.paid)}</td>
-                    <td style={{ color: owes === 0 ? 'var(--meadow-dark)' : 'var(--danger)', fontWeight: 600 }}>
-                      {owes === 0 ? 'PAID' : usd(owes)}
-                    </td>
-                  </tr>
-                )
-              })}
+              {money.ledger.map((p) => (
+                <tr key={p.name}>
+                  <td className="rowlabel">{p.name}</td>
+                  <td>{usd(p.owed)}</td>
+                  <td>{usd(p.paid)}</td>
+                  <td style={{ color: p.diff > 0 ? 'var(--danger)' : 'var(--meadow-dark)', fontWeight: 600 }}>
+                    {p.diff > 0 ? usd(p.diff) : p.diff < 0 ? `${usd(p.diff)} (credit)` : 'PAID'}
+                  </td>
+                </tr>
+              ))}
               <tr className="total-row">
-                <td className="rowlabel">Still outstanding</td>
-                <td />
-                <td />
-                <td style={{ fontWeight: 700 }}>{usd(outstanding)}</td>
+                <td className="rowlabel">Totals</td>
+                <td>{usd(money.ledgerTotals.owed)}</td>
+                <td>{usd(money.ledgerTotals.paid)}</td>
+                <td style={{ fontWeight: 700 }}>{usd(money.ledgerTotals.diff)}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p className="muted" style={{ marginTop: '0.6rem', fontSize: '0.8rem' }}>
-          Airbnb settlement only ({usd(money.airbnbShare)} per house pig). Golf, shuttle, and groceries settle separately.
+          Shared costs only (Airbnb, dinner, shuttle, groceries). Golf greens fees are paid at each course.
         </p>
       </div>
     </div>

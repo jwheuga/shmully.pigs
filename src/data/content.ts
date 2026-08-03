@@ -337,35 +337,42 @@ export const house = {
 // Per-person math assumes: 11 pigs at the house, 20 pigs golfing,
 // $500 groceries split by the 11 at the house.
 export const money = {
-  assumptions: 'Assumes 12 at the house, 20 golfing, $500 of groceries split by the house.',
+  // Shared pool that gets reimbursed to Wilder. Golf greens fees are paid
+  // directly at each course and are NOT in these amounts.
+  costNote: 'Golf is paid directly at each course (Vail GC $164, Red Sky $285 per player) and is not in the totals below. What each pig owes Wilder for the shared costs is in the settlement table.',
   lineItems: [
-    { item: 'Airbnb (4842 Meadow Lane)', amount: '$6,429.72 for 12', perPerson: '$535.81' },
-    { item: 'Vail Golf Club', amount: '$3,280 for 20', perPerson: '$164.00' },
-    { item: 'Red Sky Golf Club', amount: '$5,700 for 20', perPerson: '$285.00' },
-    { item: 'Transportation (shuttle)', amount: '$700 for 12', perPerson: '$58.33' },
-    { item: 'Groceries (est.)', amount: '$500', perPerson: '$45.45' },
+    { item: 'Airbnb (4842 Meadow Lane)', perPerson: '$459.06', amount: '$5,049.71' },
+    { item: 'Dinner at El Segundo', perPerson: '$68.75', amount: '$1,110.00' },
+    { item: 'Transportation (shuttle)', perPerson: '$53.84', amount: '$700.00' },
+    { item: 'Groceries', perPerson: '$56.67', amount: '$680.00' },
   ],
-  totals: [
-    { label: 'House pig, golfing both rounds', amount: '$1,088.59' },
-    { label: 'Off-site pig, golfing both rounds', amount: '$507.33' },
-  ],
-  // How to pay Wilder back for the Airbnb.
+  poolTotal: '$7,539.71',
+  // How to pay Wilder back.
   zelle: { name: 'Wilder Heuga', contact: '(970) 376-5413', qr: '/zelle-qr.png' },
-  // Airbnb settlement — each house pig owes $535.81. Update `paid` as money lands.
-  airbnbShare: 535.81,
+  // Settlement — owed/paid/diff transcribed straight from the sheet (a couple
+  // overpaid, so `diff` is stored rather than computed). Update as money lands.
+  ledgerTotals: { owed: 8084.74, paid: 2918.28, diff: 5255.09 },
   ledger: [
-    { name: "Dustin O'Reilly", owed: 535.81, paid: 300 },
-    { name: 'Wilder Heuga', owed: 535.81, paid: 535.81 },
-    { name: 'Derek Vanwagner', owed: 535.81, paid: 0 },
-    { name: 'Nick Cantelmi', owed: 535.81, paid: 0 },
-    { name: 'Tony Savino', owed: 535.81, paid: 0 },
-    { name: 'The Hamm Master', owed: 535.81, paid: 0 },
-    { name: 'Matt Albrecht', owed: 535.81, paid: 0 },
-    { name: 'Matt Wilson', owed: 535.81, paid: 0 },
-    { name: 'William Scheffler', owed: 535.81, paid: 0 },
-    { name: 'Brian Wagner', owed: 535.81, paid: 535.81 },
-    { name: 'Carlos Garcia', owed: 535.81, paid: 0 },
-    { name: 'Hunter Snyder', owed: 535.81, paid: 0 },
+    { name: "Dustin O'Reilly", owed: 638.52, paid: 300, diff: 338.52 },
+    { name: 'Wilder Heuga', owed: 638.52, paid: 535.81, diff: 0 },
+    { name: 'Derek Vanwagner', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'Nick Cantelmi', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'Tony Savino', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'The Hamm Master', owed: 638.52, paid: 1100, diff: -461.48 },
+    { name: 'Matt Albrecht', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'Matt Wilson', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'William Scheffler', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'Brian Wagner', owed: 923.52, paid: 982.47, diff: -58.95 },
+    { name: 'Carlos Garcia', owed: 638.52, paid: 0, diff: 638.52 },
+    { name: 'Hunter Snyder', owed: 569.77, paid: 0, diff: 569.77 },
+    { name: 'Ryan Smith', owed: 0, paid: 0, diff: 0 },
+    { name: 'Taylor Telling', owed: 68.75, paid: 0, diff: 68.75 },
+    { name: 'Matt Dillon', owed: 68.75, paid: 0, diff: 68.75 },
+    { name: 'Zach Adamson', owed: 68.75, paid: 0, diff: 68.75 },
+    { name: 'Adam Ranken', owed: 53.84, paid: 0, diff: 53.84 },
+    { name: 'Dylan Hall', owed: 0, paid: 0, diff: 0 },
+    { name: 'Jordy Coffee', owed: 68.75, paid: 0, diff: 68.75 },
+    { name: 'Franco', owed: 68.75, paid: 0, diff: 68.75 },
   ],
 }
 
